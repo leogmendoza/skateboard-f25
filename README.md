@@ -23,6 +23,7 @@ This repository contains all the firmware and hardware for Electrium Mobility's 
 ```bash
 git clone https://github.com/leogmendoza/skateboard-f25.git
 cd skateboard-f25
+```
 
 ## Contributing
 
