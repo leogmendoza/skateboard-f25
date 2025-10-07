@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "harnessLibrary")(type "KiCad")(uri "C:/Users/bingb/KiCad Projects/harnessLibrary.kicad_sym")(options "")(descr ""))
+)
