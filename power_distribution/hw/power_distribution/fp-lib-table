@@ -4,4 +4,8 @@
   (lib (name "AP63203WU-7")(type "KiCad")(uri "C:/Users/Leo/Downloads/AP63203WU_7/KiCADv6/footprints.pretty")(options "")(descr ""))
   (lib (name "AP63205WU-7")(type "KiCad")(uri "C:/Users/Leo/Downloads/AP63205WU_7/KiCADv6/footprints.pretty")(options "")(descr ""))
   (lib (name "XT Connectors")(type "KiCad")(uri "C:/Users/Leo/Downloads/Connector_AMASS.pretty")(options "")(descr ""))
+  (lib (name "BZT52C15-7-F")(type "KiCad")(uri "C:/Users/Leo/Downloads/BZT52C15-13-F")(options "")(descr ""))
+  (lib (name "GSFD6959")(type "KiCad")(uri "C:/Users/Leo/Downloads/GSFD6959/KiCADv6/footprints.pretty")(options "")(descr ""))
+  (lib (name "SMBJ51A-13-F")(type "KiCad")(uri "C:/Users/Leo/Downloads/SMBJ51A_13_F/KiCADv6/footprints.pretty")(options "")(descr ""))
+  (lib (name "0685T3500-01")(type "KiCad")(uri "C:/Users/Leo/Downloads/ul_C1T-3-5/KiCADv6/footprints.pretty")(options "")(descr ""))
 )
