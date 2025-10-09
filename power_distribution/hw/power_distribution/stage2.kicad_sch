@@ -377,7 +377,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "3b24b3ca-1ca7-4bc9-8f07-da2b599a471b")
-		(property "Reference" "U?"
+		(property "Reference" "U2"
 			(at 69.85 44.45 0)
 			(effects
 				(font
@@ -443,7 +443,7 @@
 		(instances
 			(project "power_distribution"
 				(path "/60722063-abcd-445d-bfe3-2bc3b4deef0d/e07a9241-783b-4e5c-9524-3952a51d89e7"
-					(reference "U?")
+					(reference "U2")
 					(unit 1)
 				)
 			)

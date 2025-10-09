@@ -8,4 +8,8 @@
   (lib (name "GSFD6959")(type "KiCad")(uri "C:/Users/Leo/Downloads/GSFD6959/KiCADv6/footprints.pretty")(options "")(descr ""))
   (lib (name "SMBJ51A-13-F")(type "KiCad")(uri "C:/Users/Leo/Downloads/SMBJ51A_13_F/KiCADv6/footprints.pretty")(options "")(descr ""))
   (lib (name "0685T3500-01")(type "KiCad")(uri "C:/Users/Leo/Downloads/ul_C1T-3-5/KiCADv6/footprints.pretty")(options "")(descr ""))
+  (lib (name "0ZCH0050FF2G")(type "KiCad")(uri "C:/Users/Leo/Downloads/ul_0ZCH0050FF2G(1)/KiCADv6/footprints.pretty")(options "")(descr ""))
+  (lib (name "ESD5Z12T1G")(type "KiCad")(uri "C:/Users/Leo/Downloads/ul_ESD5Z12T1G/KiCADv6/footprints.pretty")(options "")(descr ""))
+  (lib (name "ESD5Z5.0T1G")(type "KiCad")(uri "C:/Users/Leo/Downloads/ul_ESD5Z5-0T1G/KiCADv6/footprints.pretty")(options "")(descr ""))
+  (lib (name "ESD5Z3.3T5G")(type "KiCad")(uri "C:/Users/Leo/Downloads/ul_ESD5Z3-3T5G/KiCADv6/footprints.pretty")(options "")(descr ""))
 )

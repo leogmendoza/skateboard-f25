@@ -246,7 +246,7 @@
 	)
 	(hierarchical_label "VOUT"
 		(shape output)
-		(at 220.98 93.98 0)
+		(at 95.25 50.8 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -257,7 +257,7 @@
 	)
 	(hierarchical_label "VIN"
 		(shape input)
-		(at 52.07 83.82 180)
+		(at 38.1 44.45 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -268,16 +268,16 @@
 	)
 	(symbol
 		(lib_id "LMR51635XFDDCR:LMR51635XFDDCR")
-		(at 58.42 41.91 0)
+		(at 48.26 44.45 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "15cf3561-8119-4ada-966d-267733e80bc8")
-		(property "Reference" "U?"
-			(at 73.66 31.75 0)
+		(uuid "5a497d07-7868-4644-95e5-21ec22a8ba31")
+		(property "Reference" "U1"
+			(at 63.5 34.29 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -285,7 +285,7 @@
 			)
 		)
 		(property "Value" "LMR51635XFDDCR"
-			(at 73.66 34.29 0)
+			(at 63.5 36.83 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -293,7 +293,7 @@
 			)
 		)
 		(property "Footprint" "DDC0006A-MFG"
-			(at 58.42 41.91 0)
+			(at 48.26 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -303,7 +303,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.ti.com/lit/gpn/lmr51635"
-			(at 58.42 41.91 0)
+			(at 48.26 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -313,7 +313,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 58.42 41.91 0)
+			(at 48.26 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -322,27 +322,27 @@
 			)
 		)
 		(pin "2"
-			(uuid "f383226c-2e68-4540-a6a6-7945b3e83ebe")
-		)
-		(pin "5"
-			(uuid "315ebeac-5971-4296-bf6f-04b53bdd610f")
-		)
-		(pin "4"
-			(uuid "405e503d-a43e-4210-989f-530f200a26d4")
-		)
-		(pin "6"
-			(uuid "a6444001-8b99-45a4-acc1-f3ffc439f970")
-		)
-		(pin "1"
-			(uuid "10cb581b-e1d6-4b26-ae38-65e37b3521da")
+			(uuid "8de51599-1f30-46c2-b016-45abb803cd5d")
 		)
 		(pin "3"
-			(uuid "7cb67f01-a949-4abb-a0fa-e43e161161ba")
+			(uuid "e76bd90a-98ca-4657-80ca-85d472dcf9d0")
+		)
+		(pin "6"
+			(uuid "0c4a30d6-dff2-4f87-afe5-6ab537d9e2da")
+		)
+		(pin "5"
+			(uuid "544833f2-863e-400b-a363-a34bf1af0194")
+		)
+		(pin "1"
+			(uuid "6e68ae09-b4ef-4a71-b9c4-2d61be0ae5ea")
+		)
+		(pin "4"
+			(uuid "1b781fea-f689-4016-9e92-acaacf90f18f")
 		)
 		(instances
-			(project "power_distribution"
+			(project ""
 				(path "/60722063-abcd-445d-bfe3-2bc3b4deef0d/b718a78d-1366-440c-a3b7-c9fe281beaec"
-					(reference "U?")
+					(reference "U1")
 					(unit 1)
 				)
 			)
