@@ -613,18 +613,6 @@
     [
       "60722063-abcd-445d-bfe3-2bc3b4deef0d",
       "Root"
-    ],
-    [
-      "b718a78d-1366-440c-a3b7-c9fe281beaec",
-      "Stage 1: 43.2V to 12V"
-    ],
-    [
-      "e07a9241-783b-4e5c-9524-3952a51d89e7",
-      "Stage 2: 12V to 5V"
-    ],
-    [
-      "6fe67eac-ffe4-4ebc-b626-4687a858459c",
-      "Stage 3: 5V to 3V3"
     ]
   ],
   "text_variables": {}
