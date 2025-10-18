@@ -37,11 +37,11 @@ cd skateboard-f25
     - Upload
     - Monitor
 
-### Electrical Instructions (files in repo are under construction)
+### Electrical Instructions 
 1. Open KiCad 9
-2. Open `.kicad_pro` file in your assigned project's `hw` folder (e.g. telemetry):
+2. Open `.kicad_pro` file in your assigned project's `hw/<project>` folder (e.g. telemetry):
     ```bash
-    telemetry/hw/telemetry.kicad_pro
+    telemetry/hw/telemetry/telemetry.kicad_pro
 3. Edit schematic or PCB layout
 
 ## Git Workflow
