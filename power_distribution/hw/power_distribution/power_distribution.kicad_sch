@@ -2003,7 +2003,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Device:R"
+		(symbol "Device:R_US"
 			(pin_numbers
 				(hide yes)
 			)
@@ -2014,15 +2014,15 @@
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "R"
-				(at 2.032 0 90)
+				(at 2.54 0 90)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Value" "R"
-				(at 0 0 90)
+			(property "Value" "R_US"
+				(at -2.54 0 90)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2030,7 +2030,7 @@
 				)
 			)
 			(property "Footprint" ""
-				(at -1.778 0 90)
+				(at 1.016 -0.254 90)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2047,7 +2047,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Resistor"
+			(property "Description" "Resistor, US symbol"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2074,12 +2074,61 @@
 					(hide yes)
 				)
 			)
-			(symbol "R_0_1"
-				(rectangle
-					(start -1.016 -2.54)
-					(end 1.016 2.54)
+			(symbol "R_US_0_1"
+				(polyline
+					(pts
+						(xy 0 2.286) (xy 0 2.54)
+					)
 					(stroke
-						(width 0.254)
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -2.286) (xy 0 -2.54)
+					)
+					(stroke
+						(width 0)
 						(type default)
 					)
 					(fill
@@ -2087,7 +2136,7 @@
 					)
 				)
 			)
-			(symbol "R_1_1"
+			(symbol "R_US_1_1"
 				(pin passive line
 					(at 0 3.81 270)
 					(length 1.27)
@@ -7426,7 +7475,7 @@
 	)
 	(symbol
 		(lib_id "Device:LED")
-		(at 63.5 93.98 270)
+		(at 63.5 93.98 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -7435,21 +7484,21 @@
 		(fields_autoplaced yes)
 		(uuid "67f081e7-db43-4719-b3cd-85b7b90d8285")
 		(property "Reference" "D3"
-			(at 66.04 91.1224 90)
+			(at 67.31 94.2974 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Value" "2Vf"
-			(at 66.04 93.6624 90)
+			(at 67.31 96.8374 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""
@@ -8963,7 +9012,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "Device:R_US")
 		(at 63.5 148.59 180)
 		(unit 1)
 		(exclude_from_sim no)
@@ -8991,7 +9040,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 65.278 148.59 90)
+			(at 62.484 148.336 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9008,7 +9057,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Resistor"
+		(property "Description" "Resistor, US symbol"
 			(at 63.5 148.59 0)
 			(effects
 				(font
@@ -9103,7 +9152,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "Device:R_US")
 		(at 69.85 57.15 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -9131,7 +9180,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 68.072 57.15 90)
+			(at 70.866 57.404 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9148,7 +9197,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Resistor"
+		(property "Description" "Resistor, US symbol"
 			(at 69.85 57.15 0)
 			(effects
 				(font
@@ -9499,7 +9548,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "Device:R_US")
 		(at 254 58.42 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -9527,7 +9576,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 252.222 58.42 90)
+			(at 255.016 58.674 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9544,7 +9593,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Resistor"
+		(property "Description" "Resistor, US symbol"
 			(at 254 58.42 0)
 			(effects
 				(font
@@ -9569,7 +9618,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "Device:R_US")
 		(at 63.5 193.04 180)
 		(unit 1)
 		(exclude_from_sim no)
@@ -9597,7 +9646,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 65.278 193.04 90)
+			(at 62.484 192.786 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9614,7 +9663,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Resistor"
+		(property "Description" "Resistor, US symbol"
 			(at 63.5 193.04 0)
 			(effects
 				(font
@@ -9639,7 +9688,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "Device:R_US")
 		(at 63.5 104.14 180)
 		(unit 1)
 		(exclude_from_sim no)
@@ -9667,7 +9716,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 65.278 104.14 90)
+			(at 62.484 103.886 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9684,7 +9733,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Resistor"
+		(property "Description" "Resistor, US symbol"
 			(at 63.5 104.14 0)
 			(effects
 				(font
@@ -9709,7 +9758,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
+		(lib_id "Device:R_US")
 		(at 254 50.8 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -9737,7 +9786,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 252.222 50.8 90)
+			(at 255.016 51.054 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9754,7 +9803,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Resistor"
+		(property "Description" "Resistor, US symbol"
 			(at 254 50.8 0)
 			(effects
 				(font
@@ -10046,7 +10095,7 @@
 	)
 	(symbol
 		(lib_id "Device:LED")
-		(at 63.5 138.43 270)
+		(at 63.5 138.43 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10055,21 +10104,21 @@
 		(fields_autoplaced yes)
 		(uuid "eae756c4-cea1-4965-8544-36c047e21f76")
 		(property "Reference" "D6"
-			(at 66.04 135.5724 90)
+			(at 67.31 138.7474 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Value" "2Vf"
-			(at 66.04 138.1124 90)
+			(at 67.31 141.2874 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""
@@ -10191,7 +10240,7 @@
 	)
 	(symbol
 		(lib_id "Device:LED")
-		(at 63.5 182.88 270)
+		(at 63.5 182.88 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10200,21 +10249,21 @@
 		(fields_autoplaced yes)
 		(uuid "f4aaf935-3063-4200-907c-8f9103267420")
 		(property "Reference" "D8"
-			(at 66.04 180.0224 90)
+			(at 67.31 183.1974 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Value" "2Vf"
-			(at 66.04 182.5624 90)
+			(at 67.31 185.7374 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""
