@@ -2236,6 +2236,113 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Mechanical:MountingHole_Pad"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom no)
+			(on_board yes)
+			(property "Reference" "H"
+				(at 0 6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "MountingHole_Pad"
+				(at 0 4.445 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Mounting Hole with connection"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "mounting hole"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "MountingHole*Pad*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "MountingHole_Pad_0_1"
+				(circle
+					(center 0 1.27)
+					(radius 1.27)
+					(stroke
+						(width 1.27)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "MountingHole_Pad_1_1"
+				(pin input line
+					(at 0 -2.54 90)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "SMBJ51A-13-F:SMBJ51A-13-F"
 			(pin_names
 				(offset 1.016)
@@ -3804,6 +3911,22 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ff3977b1-ac9c-4da1-bfeb-de6265013891")
+	)
+	(no_connect
+		(at 50.8 264.16)
+		(uuid "29201256-d0d0-4ed2-a391-6d26530cfba7")
+	)
+	(no_connect
+		(at 25.4 276.86)
+		(uuid "3e22ce97-04fb-423e-ab1c-246e8a945363")
+	)
+	(no_connect
+		(at 25.4 264.16)
+		(uuid "40d93591-a284-4984-ade3-053d44c5af7e")
+	)
+	(no_connect
+		(at 50.8 276.86)
+		(uuid "87ebb1fb-81d7-4f0e-936c-b200e7320f65")
 	)
 	(wire
 		(pts
@@ -6443,17 +6566,18 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "07d2bf7e-5d91-4a01-8cc8-7dd69fc36757")
-		(property "Reference" "SW_12V"
+		(property "Reference" "SW_12V1"
 			(at 296.164 48.26 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
 			)
 		)
 		(property "Value" "SW_12V"
-			(at 296.164 50.8 90)
+			(at 296.418 49.53 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6461,7 +6585,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+		(property "Footprint" "test_point_custom:TestPoint_Pad_D1.0mm"
 			(at 292.1 54.61 0)
 			(effects
 				(font
@@ -6494,7 +6618,7 @@
 		(instances
 			(project ""
 				(path "/60722063-abcd-445d-bfe3-2bc3b4deef0d"
-					(reference "SW_12V")
+					(reference "SW_12V1")
 					(unit 1)
 				)
 			)
@@ -7061,13 +7185,14 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2bad4d90-7eb2-47cc-8934-60927d60b8ab")
-		(property "Reference" "VBAT"
+		(property "Reference" "VBAT1"
 			(at 138.43 30.4799 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
 			)
 		)
 		(property "Value" "VBAT"
@@ -7079,7 +7204,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+		(property "Footprint" "test_point_custom:TestPoint_Pad_D1.0mm"
 			(at 133.35 36.83 0)
 			(effects
 				(font
@@ -7112,7 +7237,7 @@
 		(instances
 			(project ""
 				(path "/60722063-abcd-445d-bfe3-2bc3b4deef0d"
-					(reference "VBAT")
+					(reference "VBAT1")
 					(unit 1)
 				)
 			)
@@ -7271,6 +7396,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Value" "EN_3V3"
@@ -7281,7 +7407,7 @@
 				)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+		(property "Footprint" "test_point_custom:TestPoint_Pad_D1.0mm"
 			(at 232.41 172.72 0)
 			(effects
 				(font
@@ -7608,6 +7734,73 @@
 		)
 	)
 	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 25.4 274.32 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4162d3b0-4c26-4048-a174-dbc8b9512927")
+		(property "Reference" "H2"
+			(at 27.94 271.7799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole_Pad"
+			(at 27.94 274.3199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2_Pad_Via"
+			(at 25.4 274.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 25.4 274.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 25.4 274.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c3686b3b-3910-4fd0-b9c7-af135214d6fc")
+		)
+		(instances
+			(project "power_distribution"
+				(path "/60722063-abcd-445d-bfe3-2bc3b4deef0d"
+					(reference "H2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 133.35 201.93 0)
 		(unit 1)
@@ -7819,13 +8012,14 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "56737388-9bf2-460d-a0d8-78b96a893783")
-		(property "Reference" "12V"
+		(property "Reference" "12V1"
 			(at 66.04 90.9319 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify right)
+				(hide yes)
 			)
 		)
 		(property "Value" "12V"
@@ -7837,7 +8031,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+		(property "Footprint" "test_point_custom:TestPoint_Pad_D1.0mm"
 			(at 58.42 88.9 0)
 			(effects
 				(font
@@ -7870,7 +8064,7 @@
 		(instances
 			(project ""
 				(path "/60722063-abcd-445d-bfe3-2bc3b4deef0d"
-					(reference "12V")
+					(reference "12V1")
 					(unit 1)
 				)
 			)
@@ -8502,6 +8696,73 @@
 		)
 	)
 	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 50.8 261.62 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "66b833a5-7b5f-46e6-a874-1fb22fed4982")
+		(property "Reference" "H3"
+			(at 53.34 259.0799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole_Pad"
+			(at 53.34 261.6199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2_Pad_Via"
+			(at 50.8 261.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 50.8 261.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 50.8 261.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "30ddadc2-047d-4eca-bcc0-029a4d33461a")
+		)
+		(instances
+			(project "power_distribution"
+				(path "/60722063-abcd-445d-bfe3-2bc3b4deef0d"
+					(reference "H3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:Polyfuse")
 		(at 38.1 168.91 180)
 		(unit 1)
@@ -8664,6 +8925,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Value" "FB_3V3"
@@ -8674,7 +8936,7 @@
 				)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+		(property "Footprint" "test_point_custom:TestPoint_Pad_D1.0mm"
 			(at 234.95 147.32 0)
 			(effects
 				(font
@@ -8862,13 +9124,14 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6dbf361d-ace6-401d-9442-89c4e91e153d")
-		(property "Reference" "SW_5V"
+		(property "Reference" "SW_5V1"
 			(at 296.164 113.03 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
 			)
 		)
 		(property "Value" "SW_5V"
@@ -8880,7 +9143,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+		(property "Footprint" "test_point_custom:TestPoint_Pad_D1.0mm"
 			(at 292.1 119.38 0)
 			(effects
 				(font
@@ -8913,7 +9176,7 @@
 		(instances
 			(project "power_distribution"
 				(path "/60722063-abcd-445d-bfe3-2bc3b4deef0d"
-					(reference "SW_5V")
+					(reference "SW_5V1")
 					(unit 1)
 				)
 			)
@@ -9493,12 +9756,13 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "849464d2-fd40-4f28-b85b-21fc9181d979")
-		(property "Reference" "EN_5V"
+		(property "Reference" "EN_5V1"
 			(at 229.108 109.22 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Value" "EN_5V"
@@ -9509,7 +9773,7 @@
 				)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+		(property "Footprint" "test_point_custom:TestPoint_Pad_D1.0mm"
 			(at 232.41 109.22 0)
 			(effects
 				(font
@@ -9542,7 +9806,7 @@
 		(instances
 			(project ""
 				(path "/60722063-abcd-445d-bfe3-2bc3b4deef0d"
-					(reference "EN_5V")
+					(reference "EN_5V1")
 					(unit 1)
 				)
 			)
@@ -10110,6 +10374,7 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
 			)
 		)
 		(property "Value" "SW_3V3"
@@ -10121,7 +10386,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+		(property "Footprint" "test_point_custom:TestPoint_Pad_D1.0mm"
 			(at 292.1 182.88 0)
 			(effects
 				(font
@@ -10518,13 +10783,14 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a1b98127-cedb-4cb6-b675-620fc45347bf")
-		(property "Reference" "GND"
+		(property "Reference" "GND2"
 			(at 284.48 58.4199 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
 			)
 		)
 		(property "Value" "GND"
@@ -10536,7 +10802,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+		(property "Footprint" "test_point_custom:TestPoint_Pad_D1.0mm"
 			(at 279.4 64.77 0)
 			(effects
 				(font
@@ -10569,7 +10835,7 @@
 		(instances
 			(project "power_distribution"
 				(path "/60722063-abcd-445d-bfe3-2bc3b4deef0d"
-					(reference "GND")
+					(reference "GND2")
 					(unit 1)
 				)
 			)
@@ -10585,13 +10851,14 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a215a059-5cad-4e42-909f-4784da84a363")
-		(property "Reference" "5V"
+		(property "Reference" "5V1"
 			(at 66.04 129.0319 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify right)
+				(hide yes)
 			)
 		)
 		(property "Value" "5V"
@@ -10603,7 +10870,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+		(property "Footprint" "test_point_custom:TestPoint_Pad_D1.0mm"
 			(at 58.42 127 0)
 			(effects
 				(font
@@ -10636,7 +10903,7 @@
 		(instances
 			(project "power_distribution"
 				(path "/60722063-abcd-445d-bfe3-2bc3b4deef0d"
-					(reference "5V")
+					(reference "5V1")
 					(unit 1)
 				)
 			)
@@ -10722,13 +10989,14 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a912d5e8-a419-4167-bfda-42c9cbd6b9a2")
-		(property "Reference" "GND"
+		(property "Reference" "GND3"
 			(at 284.48 115.5699 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
 			)
 		)
 		(property "Value" "GND"
@@ -10740,7 +11008,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+		(property "Footprint" "test_point_custom:TestPoint_Pad_D1.0mm"
 			(at 279.4 121.92 0)
 			(effects
 				(font
@@ -10773,7 +11041,7 @@
 		(instances
 			(project "power_distribution"
 				(path "/60722063-abcd-445d-bfe3-2bc3b4deef0d"
-					(reference "GND")
+					(reference "GND3")
 					(unit 1)
 				)
 			)
@@ -11665,6 +11933,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Value" "3V3"
@@ -11675,7 +11944,7 @@
 				)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+		(property "Footprint" "test_point_custom:TestPoint_Pad_D1.0mm"
 			(at 35.56 157.48 0)
 			(effects
 				(font
@@ -11709,6 +11978,73 @@
 			(project "power_distribution"
 				(path "/60722063-abcd-445d-bfe3-2bc3b4deef0d"
 					(reference "3V3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 50.8 274.32 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e99f201f-8ee8-4e3b-86c2-3b366956b088")
+		(property "Reference" "H4"
+			(at 53.34 271.7799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole_Pad"
+			(at 53.34 274.3199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2_Pad_Via"
+			(at 50.8 274.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 50.8 274.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 50.8 274.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "32c6f0a1-f0c8-4a41-b613-56b48aa6ed6e")
+		)
+		(instances
+			(project "power_distribution"
+				(path "/60722063-abcd-445d-bfe3-2bc3b4deef0d"
+					(reference "H4")
 					(unit 1)
 				)
 			)
@@ -11871,12 +12207,13 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "ec87334f-1665-4414-9d30-d8efa7881ee1")
-		(property "Reference" "FB_5V"
+		(property "Reference" "FB_5V1"
 			(at 226.314 87.376 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Value" "FB_5V"
@@ -11887,7 +12224,7 @@
 				)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+		(property "Footprint" "test_point_custom:TestPoint_Pad_D1.0mm"
 			(at 234.95 83.82 0)
 			(effects
 				(font
@@ -11920,7 +12257,7 @@
 		(instances
 			(project ""
 				(path "/60722063-abcd-445d-bfe3-2bc3b4deef0d"
-					(reference "FB_5V")
+					(reference "FB_5V1")
 					(unit 1)
 				)
 			)
@@ -11935,13 +12272,14 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "ec92fe24-1f5a-412b-9759-a42a4195296b")
-		(property "Reference" "EN_12V"
+		(property "Reference" "EN_12V1"
 			(at 246.38 51.562 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
 			)
 		)
 		(property "Value" "EN_12V"
@@ -11953,7 +12291,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+		(property "Footprint" "test_point_custom:TestPoint_Pad_D1.0mm"
 			(at 242.57 49.53 0)
 			(effects
 				(font
@@ -11986,7 +12324,7 @@
 		(instances
 			(project ""
 				(path "/60722063-abcd-445d-bfe3-2bc3b4deef0d"
-					(reference "EN_12V")
+					(reference "EN_12V1")
 					(unit 1)
 				)
 			)
@@ -12002,17 +12340,18 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f00570a2-0a3b-4ff4-8a35-c32dcf256426")
-		(property "Reference" "FB_12V"
+		(property "Reference" "FB_12V1"
 			(at 309.88 53.3399 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
 			)
 		)
 		(property "Value" "FB_12V"
-			(at 309.88 55.8799 90)
+			(at 309.88 54.6099 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12020,7 +12359,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+		(property "Footprint" "test_point_custom:TestPoint_Pad_D1.0mm"
 			(at 304.8 59.69 0)
 			(effects
 				(font
@@ -12053,7 +12392,7 @@
 		(instances
 			(project ""
 				(path "/60722063-abcd-445d-bfe3-2bc3b4deef0d"
-					(reference "FB_12V")
+					(reference "FB_12V1")
 					(unit 1)
 				)
 			)
@@ -12135,13 +12474,14 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f497995e-7be7-489b-aa44-fcc9d62f10c4")
-		(property "Reference" "GND"
+		(property "Reference" "GND1"
 			(at 110.49 58.9279 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
 			)
 		)
 		(property "Value" "GND"
@@ -12153,7 +12493,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+		(property "Footprint" "test_point_custom:TestPoint_Pad_D1.0mm"
 			(at 113.03 63.5 0)
 			(effects
 				(font
@@ -12186,7 +12526,7 @@
 		(instances
 			(project ""
 				(path "/60722063-abcd-445d-bfe3-2bc3b4deef0d"
-					(reference "GND")
+					(reference "GND1")
 					(unit 1)
 				)
 			)
@@ -12336,6 +12676,72 @@
 			(project ""
 				(path "/60722063-abcd-445d-bfe3-2bc3b4deef0d"
 					(reference "D2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 25.4 261.62 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "f6643e3e-ef7c-4ab5-b21e-d438c1b0dda6")
+		(property "Reference" "H1"
+			(at 27.94 259.0799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole_Pad"
+			(at 27.94 261.6199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "MountingHole:MountingHole_2.2mm_M2_Pad_Via"
+			(at 25.4 261.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 25.4 261.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 25.4 261.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3113aad7-5d28-4382-85fe-b561cf787c64")
+		)
+		(instances
+			(project ""
+				(path "/60722063-abcd-445d-bfe3-2bc3b4deef0d"
+					(reference "H1")
 					(unit 1)
 				)
 			)
