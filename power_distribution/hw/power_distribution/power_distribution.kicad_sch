@@ -8653,7 +8653,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Inductor_SMD:L_7.3x7.3_H4.5"
+		(property "Footprint" "7447779004:IND_7345R_WE-PD_WRE"
 			(at 298.45 101.6 0)
 			(effects
 				(font
@@ -9838,7 +9838,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Inductor_SMD:L_6.3x6.3_H3"
+		(property "Footprint" "74404052039:IND_WE-LQS_5020_WRE"
 			(at 298.45 165.1 0)
 			(effects
 				(font
@@ -12843,7 +12843,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Inductor_SMD:L_10.4x10.4_H4.8"
+		(property "Footprint" "7447714560:IND_1050P-WE-PD_WRE"
 			(at 298.45 38.1 0)
 			(effects
 				(font
@@ -12852,7 +12852,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" ""
 			(at 298.45 38.1 0)
 			(effects
 				(font
@@ -12861,7 +12861,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Inductor"
+		(property "Description" ""
 			(at 298.45 38.1 0)
 			(effects
 				(font
