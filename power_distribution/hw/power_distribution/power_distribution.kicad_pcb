@@ -6,7 +6,14 @@
 		(thickness 1.6)
 		(legacy_teardrops no)
 	)
-	(paper "A4")
+	(paper "A5")
+	(title_block
+		(title "Power Distribution Board")
+		(date "2025-10-18")
+		(rev "v1")
+		(company "Electrium Mobility")
+		(comment 1 "Author: Leopoldo Mendoza")
+	)
 	(layers
 		(0 "F.Cu" mixed "L1 - SIGNAL ")
 		(4 "In1.Cu" power "L2 - GND")
@@ -5088,6 +5095,17 @@
 			(uuid "8e3f52d0-495b-4bec-a0ea-b35ce6b325f2")
 		)
 		(embedded_fonts no)
+		(model "C:/Users/Leo/Downloads/ul_LMR51635XFDDCR(1)/DDC0006A.stp"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "MountingHole:MountingHole_2.2mm_M2_Pad_Via"
 		(layer "F.Cu")
@@ -9349,6 +9367,17 @@
 			(uuid "c4b9f736-cefb-4314-8648-d970a1bc491b")
 		)
 		(embedded_fonts no)
+		(model "C:/Users/Leo/Downloads/ul_AP63205WU-7/SOIC_05WU-7_DIO.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "0ZCH0050FF2G:0ZCH_BEL"
 		(layer "F.Cu")
@@ -17923,6 +17952,17 @@
 			(uuid "9d5f6f3e-e846-4cc5-a5d1-8648f1386663")
 		)
 		(embedded_fonts no)
+		(model "C:/Users/Leo/Downloads/ul_AP63203WU-7/AP63203WU-7_DIO.step"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
 		(layer "F.Cu")
