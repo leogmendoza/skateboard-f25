@@ -13,4 +13,7 @@
   (lib (name "ESD5Z5.0T1G")(type "KiCad")(uri "C:/Users/Leo/Downloads/ul_ESD5Z5-0T1G/KiCADv6/footprints.pretty")(options "")(descr ""))
   (lib (name "ESD5Z3.3T5G")(type "KiCad")(uri "C:/Users/Leo/Downloads/ul_ESD5Z3-3T5G/KiCADv6/footprints.pretty")(options "")(descr ""))
   (lib (name "test_point_custom")(type "KiCad")(uri "${KIPRJMOD}/test_point_custom.pretty")(options "")(descr ""))
+  (lib (name "7447714560")(type "KiCad")(uri "C:/Users/Leo/Downloads/ul_7447714560/KiCADv6/footprints.pretty")(options "")(descr ""))
+  (lib (name "7447779004")(type "KiCad")(uri "C:/Users/Leo/Downloads/ul_7447779004/KiCADv6/footprints.pretty")(options "")(descr ""))
+  (lib (name "74404052039")(type "KiCad")(uri "C:/Users/Leo/Downloads/ul_74404052039/KiCADv6/footprints.pretty")(options "")(descr ""))
 )
