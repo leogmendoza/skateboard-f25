@@ -5,6 +5,8 @@
 #include "button.h"
 #include "led.h"
 
+#define NUM_HEAD_LEDS 4
+
 typedef struct {
     LightsFsm fsm;
     LightsButton button;

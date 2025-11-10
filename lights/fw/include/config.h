@@ -13,7 +13,6 @@
 // #define HEAD_LEDS_PORT
 // #define HEAD_LEDS_DDR
 // #define HEAD_LEDS_PIN
-#define NUM_HEAD_LEDS 4
 
 /* TAIL LIGHT */
 // #define TAIL_BUTTON_PORT
@@ -22,7 +21,6 @@
 // #define TAIL_LEDS_PORT
 // #define TAIL_LEDS_DDR
 // #define TAIL_LEDS_PIN
-#define NUM_TAIL_LEDS 4
 
 /* ACCELEROMETER */
 // #define ACCELEROMETER_SCL_DDR

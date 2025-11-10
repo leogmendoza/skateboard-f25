@@ -14,7 +14,9 @@ typedef enum {
 } LightsState;
 
 typedef struct {
-    LightsState current_state;
+    const LightsState *state_sequence;
+    uint8_t num_states;
+    uint8_t index;
     uint32_t last_transition_ms;
 } LightsFsm;
 
@@ -24,6 +26,6 @@ typedef enum {
     LIGHTS_EVENT_TIMER_ELAPSED
 } LightsEvent;
 
-void lights_fsm_init(LightsFsm *fsm);
+void lights_fsm_init(LightsFsm *fsm, const LightsState *state_sequence, uint8_t num_states);
 void lights_fsm_update(LightsFsm *fsm, LightsEvent event);
 LightsState lights_fsm_get_state(LightsFsm *fsm);
