@@ -48,11 +48,11 @@ void utils_pwm_set_duty_cycle(uint8_t channel, uint8_t duty);
 
 /**
  * @brief Configure Timer0 for 1 ms system tick
- */
+ *
 void utils_timer0_init(void);
 
 /**
  * @brief Return system uptime in milliseconds since reset
- * @note Custom implementation of millis() from Arduino framework
+ * @note This is a custom implementation of millis() from Arduino framework
  */
 uint32_t utils_uptime_ms(void);
