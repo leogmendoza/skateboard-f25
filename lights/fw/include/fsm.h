@@ -24,6 +24,6 @@ typedef enum {
     LIGHTS_EVENT_TIMER_ELAPSED
 } LightsEvent;
 
-void lights_fsm_init(LightsFsm *lights_fsm);
-void lights_fsm_update(LightsFsm *lights_fsm, LightsEvent lights_event);
-LightsState lights_fsm_get_state(LightsFsm *lights_fsm);
+void lights_fsm_init(LightsFsm *fsm);
+void lights_fsm_update(LightsFsm *fsm, LightsEvent event);
+LightsState lights_fsm_get_state(LightsFsm *fsm);
