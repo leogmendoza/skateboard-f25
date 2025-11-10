@@ -26,6 +26,17 @@ typedef enum {
     LIGHTS_EVENT_TIMER_ELAPSED
 } LightsEvent;
 
+/**
+ * @brief Initialize FSM with its state sequence
+ */
 void lights_fsm_init(LightsFsm *fsm, const LightsState *state_sequence, uint8_t num_states);
+
+/**
+ * @brief Advance FSM to the next state on an event
+ */
 void lights_fsm_update(LightsFsm *fsm, LightsEvent event);
+
+/**
+ * @brief Return the FSM’s current state
+ */
 LightsState lights_fsm_get_state(LightsFsm *fsm);
