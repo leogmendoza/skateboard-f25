@@ -13,4 +13,6 @@ int main(void) {
         PORTB = (0 << PB5);
         _delay_ms(500);
     } 
+
+    // sei();
 }

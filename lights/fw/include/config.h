@@ -4,7 +4,6 @@
 
 /* MISC. */
 #define BUTTON_DEBOUNCE_MS 100
-#define F_CPU_HZ F_CPU
 
 /* HEAD LIGHT */
 // #define HEAD_BUTTON_PORT
