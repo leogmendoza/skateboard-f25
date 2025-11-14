@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'AB_EZD10C_A3_K65'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "ARROW_PART_NUMBER", "ARROW_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "American Bright LED", "AB-EZD10C-A3-K65" (!) = "", "ABEZD10CA3K65", "Other", "", "", "", "", "White LEDs 1.0W, 12V, CCT 6500K, CRI80, 3030 EMC, DC ezyLED", "https://www.americanbrightled.com/pdffiles/led-components/ezyled/AB-EZD-12V.pdf", "0.62 mm"
+END_PART
+
+END.
