@@ -1,0 +1,13 @@
+(unit MM)
+
+(package "AB-EZD10C-A3-K65"
+    (type UNDEF)
+    (uver 2)
+    (cuser "SamacSys")
+    (uuser "SamacSys")
+    (utime 2025-11-14-05:59:42)
+    (mountForm default
+        (footprintRef "ABEZD10CA3K65")
+        (spec "System")
+    )
+)
