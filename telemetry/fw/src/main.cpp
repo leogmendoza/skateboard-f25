@@ -1,18 +1,32 @@
 #include <Arduino.h>
+#include "BmsAPI.h"
 
-// put function declarations here:
-int myFunction(int, int);
+#define RS485_DIR_PIN 22
 
+BmsAPI bmsAPI(Serial2); 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+    Serial.begin(115200);
+    if (!bmsAPI.begin(RS485_DIR_PIN, 9600)) {
+        Serial.println("Failed to initialize BMS communication!");
+    }
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-}
+    bmsAPI.update();
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+    Serial.print("Voltage: ");  
+    Serial.print(bmsAPI.getVoltage());  
+    Serial.println(" V");
+    Serial.print("Current: ");  
+    Serial.print(bmsAPI.getCurrent());  
+    Serial.println(" A");
+    Serial.print("Charge: ");   
+    Serial.print(bmsAPI.getChargePercentage()); 
+    Serial.println("%");
+
+    Serial.print("Average Temp: ");
+    Serial.print(bmsAPI.getAverageTemperature());
+    Serial.println(" °C");
+
+    delay(1000);
 }
