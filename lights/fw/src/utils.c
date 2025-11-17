@@ -2,6 +2,13 @@
 
 #include <avr/interrupt.h>
 
+volatile uint32_t uptime_ms = 0;
+
+/* Configured by utils_timer1_init() to trigger every 1 ms */
+static ISR(TIMER1_COMPA_vect) {
+    uptime_ms++;
+}
+
 /* GPIO */
 
 void utils_gpio_set_output(volatile uint8_t *ddr, uint8_t bit) {
@@ -43,5 +50,15 @@ void utils_timer1_init(void) {
 
     OCR1A = TIMER1_TOP_COUNT;  // 999
 
-    TIMSK1 = (1 << OCIE1A);  // TIMER1_COMPA_vect executed 
+    TIMSK1 |= (1 << OCIE1A);  // TIMER1_COMPA_vect executed 
+}
+
+uint32_t utils_uptime_ms(void) {
+    uint32_t value;
+
+    cli();  // CRITICAL SECTION BEGINS
+    value = uptime_ms;  // Prevent interrupts from manipulating the 32-bit uptime value while reading it
+    sei();  // CRITICAL SECTION ENDS
+
+    return value;
 }

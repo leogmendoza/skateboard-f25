@@ -3,12 +3,10 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-#define F_CPU_HZ F_CPU
-#define SYSTEM_TICK_INTERVAL_S 0.001
-#define TOTAL_CYCLES (F_CPU_HZ * SYSTEM_TICK_INTERVAL_S) // Ticks to count for 1 ms interval
+#define SYSTEM_CLOCK_FREQUENCY_HZ F_CPU
+#define TIMER1_TOTAL_CYCLES_1_MS (SYSTEM_CLOCK_FREQUENCY_HZ * 0.001) // Cycles to count for 1 ms interval: 8000 
 #define PRESCALER 8
-// Calculate the exact value for the Output Compare Register (OCR1A/TOP)
-#define TIMER1_TOP_COUNT ((TOTAL_CYCLES / PRESCALER) - 1UL) // 999 => 125 us Timer1 tick period
+#define TIMER1_TOP_COUNT ((TIMER1_TOTAL_CYCLES_1_MS / PRESCALER) - 1UL) // Value for Output Compare Register (OCR1A/TOP): 999 => 1 us TIMER1 clock period
 
 /* GPIO */
 
