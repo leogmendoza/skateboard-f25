@@ -1,33 +1,37 @@
-Reference,Qty,Value,Footprint,Manufacturer Part #,Part Page,Datasheet
-C1,1,47uF,Capacitor_SMD:CP_Elec_10x10,8.65061E+11,https://www.digikey.ca/en/products/detail/w%C3%BCrth-elektronik/865060857005/17829912,~
-"C2,C4,C6,C8,C12,C13,C17,C21,C24",9,0.1uF,Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder,CL10B104KC8NNNC,https://www.digikey.ca/en/products/detail/samsung-electro-mechanics/CL10B104KC8NNNC/5961291,~
-C3,1,47uF,Capacitor_SMD:CP_Elec_8x10,8.65081E+11,https://www.digikey.ca/en/products/detail/w%C3%BCrth-elektronik/865080649013/5728053,~
-C5,1,47uF,Capacitor_SMD:CP_Elec_6.3x7.7,8.65081E+11,https://www.digikey.ca/en/products/detail/w%C3%BCrth-elektronik/865080543009/5728103,~
-C7,1,47uF,Capacitor_SMD:CP_Elec_5x5.3,8.6508E+11,https://www.digikey.ca/en/products/detail/w%C3%BCrth-elektronik/865080342006/5728011,~
-C9,1,22uF,Capacitor_SMD:CP_Elec_10x10,EEE-HD2A220P,https://www.digikey.ca/en/products/detail/panasonic-electronic-components/EEE-HD2A220P/1985165,~
-"C10,C11",2,2.2uF,Capacitor_SMD:C_1210_3225Metric_Pad1.33x2.70mm_HandSolder,CL32B225KCJSNNE,https://www.digikey.ca/en/products/detail/samsung-electro-mechanics/CL32B225KCJSNNE/3889020,~
-"C14,C16,C20",3,10uF,Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,CL31B106KAHNNNE,https://www.digikey.ca/en/products/detail/samsung-electro-mechanics/CL31B106KAHNNNE/3887462,~
-"C15,C18,C19,C22,C23",5,22uF,Capacitor_SMD:C_1210_3225Metric_Pad1.33x2.70mm_HandSolder,CL32A226KAJNNNE,https://www.digikey.ca/en/products/detail/samsung-electro-mechanics/CL32A226KAJNNNE/3886759,~
-D1,1,51Vrwm,SMBJ51A-13-F:SMB_DIO,SMBJ51A-13-F,https://www.digikey.ca/en/products/detail/diodes-incorporated/SMBJ51A-13-F/814623,
-D2,1,15Vz,BZT52C15-7-F:SOD3715X135N,BZT52C15-7-F,https://www.digikey.ca/en/products/detail/diodes-incorporated/BZT52C15-7-F/755469,~
-"D3,D6,D8",3,2Vf,LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder,LTST-C170GKT,https://www.digikey.ca/en/products/detail/liteon/LTST-C170GKT/269226,~
-D4,1,12Vrwm,ESD5Z12T1G:SOD-523_0P9X1P3_ONS,ESD5Z12T1G,https://www.digikey.ca/en/products/detail/onsemi/ESD5Z12T1G/1202914,
-D5,1,5Vrwm,ESD5Z5.0T1G:SOD-523_0P9X1P3_ONS,ESD5Z5.0T1G,https://www.digikey.ca/en/products/detail/onsemi/ESD5Z5-0T1G/1476609,
-"D7,D9",2,3.3Vrwm,ESD5Z5.0T1G:SOD-523_0P9X1P3_ONS,ESD5Z3.3T5G,https://www.digikey.ca/en/products/detail/onsemi/ESD5Z3-3T5G/5404302,
-F1,1,3.5A 63V,0685T3500-01:C1_BEL,0685T3500-01,https://www.digikey.ca/en/products/detail/bel-fuse-inc/0685T3500-01/4968269,~
-"F2,F3,F4,F5,F6",5,0.5A 16V,0ZCH0050FF2G:0ZCH_BEL,0ZCH0050FF2G,https://www.digikey.ca/en/products/detail/bel-fuse-inc/0ZCH0050FF2G/4156298,~
-J1,1,XT30-M_Ver,Connector_AMASS:AMASS_XT30UPB-M_1x02_P5.0mm_Vertical,FIT0586,https://www.digikey.ca/en/products/detail/dfrobot/FIT0586/9559255,~
-"J2,J3,J4,J5",4,JST-PH_01x02,Connector_JST:JST_PH_S2B-PH-K_1x02_P2.00mm_Horizontal,B2B-PH-K-S,https://www.digikey.ca/en/products/detail/jst-sales-america-inc/B2B-PH-K-S/926611,~
-L1,1,51uH,7447714560:IND_1050P-WE-PD_WRE,7447714560,https://www.digikey.ca/en/products/detail/w%C3%BCrth-elektronik/7447714560/3316859,
-L2,1,4.7uH,7447779004:IND_7345R_WE-PD_WRE,7447779004,https://www.digikey.ca/en/products/detail/w%C3%BCrth-elektronik/7447779004/1638594,~
-L3,1,3.9uH,74404052039:IND_WE-LQS_5020_WRE,74404052039,https://www.digikey.ca/en/products/detail/w%C3%BCrth-elektronik/74404052039/5353061,~
-Q1,1,60Vds,GSFD6959:PMOSGDS_TO-252_DPAK_GAS,GSFD6959,https://www.digikey.ca/en/products/detail/good-ark-semiconductor/GSFD6959/21275302,~
-"R1,R7",2,100k,Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,CRCW0603100KFKEA,https://www.digikey.ca/en/products/detail/vishay-dale/CRCW0603100KFKEA/1174896,~
-R2,1,4.7k,Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,CRCW06034K70FKEA,https://www.digikey.ca/en/products/detail/vishay-dale/CRCW06034K70FKEA/1174744,~
-R3,1,1.5k,Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,CRCW06031K50FKEA,https://www.digikey.ca/en/products/detail/vishay-dale/CRCW06031K50FKEA/1174686,~
-R4,1,680,Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,CRCW0603680RFKEA,https://www.digikey.ca/en/products/detail/vishay-dale/CRCW0603680RFKEA/1174649,~
-R5,1,143k,Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,CRCW0603143KFKEA,https://www.digikey.ca/en/products/detail/vishay-dale/CRCW0603143KFKEA/1174912,~
-R6,1,10.2k,Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,CRCW060310K2FKEA,https://www.digikey.ca/en/products/detail/vishay-dale/CRCW060310K2FKEA/1174783,~
-U1,1,LMR51635XFDDCR,LMR51635XFDDCR:DDC0006A-MFG,LMR51635XFDDCR,https://www.digikey.ca/en/products/detail/texas-instruments/LMR51635XFDDCR/25991384,https://www.ti.com/lit/gpn/lmr51635
-U2,1,AP63205WU-7,AP63205WU-7:SOIC_05WU-7_DIO,AP63205QWU-7,https://www.digikey.ca/en/products/detail/diodes-incorporated/AP63205QWU-7/16548067,AP63205WU-7
-U3,1,AP63203WU-7,AP63203WU-7:AP63203WU-7_DIO,AP63203QWU-7,https://www.digikey.ca/en/products/detail/diodes-incorporated/AP63203QWU-7/16548045,AP63203WU-7
+gReference,Qty,Value,Footprint,Part Number,Part Link
+C1,1,47uF,Capacitor_SMD:CP_Elec_10x10,865060857005,https://www.digikey.ca/en/products/detail/w%C3%BCrth-elektronik/865060857005/17829912
+"C2,C4,C5,C6,C12,C13,C17,C21,C24",9,0.1uF,Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder,CL10B104KC8NNNC,https://www.digikey.ca/en/products/detail/samsung-electro-mechanics/CL10B104KC8NNNC/5961291
+C3,1,47uF,Capacitor_SMD:CP_Elec_8x10,865080649013,https://www.digikey.ca/en/products/detail/w%C3%BCrth-elektronik/865080649013/5728053
+C7,1,47uF,Capacitor_SMD:CP_Elec_5x5.3,865080342006,https://www.digikey.ca/en/products/detail/w%C3%BCrth-elektronik/865080342006/5728011
+C9,1,22uF,Capacitor_SMD:CP_Elec_10x10,EEE-HD2A220P,https://www.digikey.ca/en/products/detail/panasonic-electronic-components/EEE-HD2A220P/1985165
+"C10,C11",2,2.2uF,Capacitor_SMD:C_1210_3225Metric_Pad1.33x2.70mm_HandSolder,CL32B225KCJSNNE,https://www.digikey.ca/en/products/detail/samsung-electro-mechanics/CL32B225KCJSNNE/3889020
+"C14,C20",2,10uF,Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder,CL31B106KAHNNNE,https://www.digikey.ca/en/products/detail/samsung-electro-mechanics/CL31B106KAHNNNE/3887462
+"C15,C16,C22,C23",4,22uF,Capacitor_SMD:C_1210_3225Metric_Pad1.33x2.70mm_HandSolder,CL32A226KAJNNNE,https://www.digikey.ca/en/products/detail/samsung-electro-mechanics/CL32A226KAJNNNE/3886759
+D1,1,51Vrwm,SMBJ51A-13-F:SMB_DIO,SMBJ51A-13-F,https://www.digikey.ca/en/products/detail/diodes-incorporated/SMBJ51A-13-F/814623
+D2,1,15Vz,BZT52C15-7-F:SOD3715X135N,BZT52C15-7-F,https://www.digikey.ca/en/products/detail/diodes-incorporated/BZT52C15-7-F/755469
+"D3,D8",2,2Vf,LED_SMD:LED_0805_2012Metric_Pad1.15x1.40mm_HandSolder,LTST-C170GKT,https://www.digikey.ca/en/products/detail/liteon/LTST-C170GKT/269226
+D4,1,12Vrwm,ESD5Z12T1G:SOD-523_0P9X1P3_ONS,ESD5Z12T1G,https://www.digikey.ca/en/products/detail/onsemi/ESD5Z12T1G/1202914
+"D5,D6",2,LED,LED_SMD:LED_0603_1608Metric_Pad1.05x0.95mm_HandSolder,LTST-S270KGKT,https://www.digikey.ca/en/products/detail/liteon/LTST-S270KGKT/386893
+D9,1,3.3Vrwm,ESD5Z5.0T1G:SOD-523_0P9X1P3_ONS,ESD5Z3.3T5G,https://www.digikey.ca/en/products/detail/onsemi/ESD5Z3-3T5G/5404302
+F1,1,3.5A 63V,0685T3500-01:C1_BEL,0685T3500-01,https://www.digikey.ca/en/products/detail/bel-fuse-inc/0685T3500-01/4968269
+"F2,F4,F6",3,0.5A 16V,0ZCH0050FF2G:0ZCH_BEL,0ZCH0050FF2G,https://www.digikey.ca/en/products/detail/bel-fuse-inc/0ZCH0050FF2G/4156298
+J1,1,XT30-M_Ver,Connector_AMASS:AMASS_XT30U-M_1x02_P5.0mm_Vertical,FIT0586,https://www.digikey.ca/en/products/detail/dfrobot/FIT0586/9559255
+"J2,J5",2,JST-PH_01x02,Connector_JST:JST_PH_B2B-PH-K_1x02_P2.00mm_Vertical,B2B-PH-K-S,https://www.digikey.ca/en/products/detail/jst-sales-america-inc/B2B-PH-K-S/926611
+J3,1,Conn_01x06_Pin,Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical,61300611121,"61300611121 Würth Elektronik | Connectors, Interconnects | DigiKey"
+"J6,J7",2,Conn_01x03,Connector_JST:JST_PH_B3B-PH-K_1x03_P2.00mm_Vertical,B3B-PH-SM4-TB,https://www.digikey.ca/en/products/detail/jst-sales-america-inc/B3B-PH-SM4-TB/926642
+J8,1,Conn_01x04,SSD1306:128x64OLED,61300411121,"61300411121 Würth Elektronik | Connectors, Interconnects | DigiKey"
+L1,1,51uH,7447714560:IND_1050P-WE-PD_WRE,7447714560,https://www.digikey.ca/en/products/detail/w%C3%BCrth-elektronik/7447714560/3316859?s=N4IgTCBcDaIOwBYFzgRgQVgGwAYQF0BfIA
+L3,1,3.9uH,74404052039:IND_WE-LQS_5020_WRE,74404052039,https://www.digikey.ca/en/products/detail/w%C3%BCrth-elektronik/74404052039/5353061	
+Q1,1,60Vds,GSFD6959:PMOSGDS_TO-252_DPAK_GAS,GSFD6959,https://www.digikey.ca/en/products/detail/good-ark-semiconductor/GSFD6959/21275302
+"R1,R7",2,100k,Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,CRCW0603100KFKEA,https://www.digikey.ca/en/products/detail/vishay-dale/CRCW0603100KFKEA/1174896
+R2,1,4.7k,Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,CRCW06034K70FKEA,https://www.digikey.ca/en/products/detail/vishay-dale/CRCW06034K70FKEA/1174744
+"R3,R8",2,10k,Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,CRCW060310K0FKEA,https://www.digikey.ca/en/products/detail/vishay-dale/CRCW060310K0FKEA/1174782
+R4,1,680,Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,CRCW0603680RFKEA,https://www.digikey.ca/en/products/detail/vishay-dale/CRCW0603680RFKEA/1174649
+R5,1,143k,Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,CRCW0603143KFKEA,https://www.digikey.ca/en/products/detail/vishay-dale/CRCW0603143KFKEA/1174912
+R6,1,10.2k,Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,CRCW060310K2FKEA,https://www.digikey.ca/en/products/detail/vishay-dale/CRCW060310K2FKEA/1174783
+"R9,R10",2,1k,Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,CRCW06031K00FKEA,https://www.digikey.ca/en/products/detail/vishay-dale/CRCW06031K00FKEA/1174668
+"SW1,SW2",2,SW_Push,Button_Switch_SMD:SW_SPST_TL3342,TL3342F160QG,https://www.digikey.ca/en/products/detail/e-switch/TL3342F160QG-TR/379003?s=N4IgTCBcDaICoBkDMSAsYBiBGAbABgEUBxEAXQF8g
+U1,1,LMR51635XFDDCR,LMR51635XFDDCR:DDC0006A-MFG,LMR51635XFDDCR,https://www.digikey.ca/en/products/detail/texas-instruments/LMR51635XFDDCR/25991384
+U2,1,ESP32-WROOM-32,RF_Module:ESP32-WROOM-32,ESP32-WROOM-32E-N4,https://www.digikey.ca/en/products/detail/espressif-systems/ESP32-WROOM-32E-N4/11613125
+U3,1,AP63203WU-7,AP63203WU-7:AP63203WU-7_DIO,AP63203QWU-7,https://www.digikey.ca/en/products/detail/diodes-incorporated/AP63203QWU-7/16548045
+VBAT1,1,VBAT,test_point_custom:TestPoint_Pad_D1.0mm,,
