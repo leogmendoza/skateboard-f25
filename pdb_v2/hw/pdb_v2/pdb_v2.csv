@@ -34,4 +34,3 @@ R6,1,10.2k,Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,CRCW060310K2
 U1,1,LMR51635XFDDCR,LMR51635XFDDCR:DDC0006A-MFG,LMR51635XFDDCR,https://www.digikey.ca/en/products/detail/texas-instruments/LMR51635XFDDCR/25991384
 U2,1,ESP32-WROOM-32,RF_Module:ESP32-WROOM-32,ESP32-WROOM-32E-N4,https://www.digikey.ca/en/products/detail/espressif-systems/ESP32-WROOM-32E-N4/11613125
 U3,1,AP63203WU-7,AP63203WU-7:AP63203WU-7_DIO,AP63203QWU-7,https://www.digikey.ca/en/products/detail/diodes-incorporated/AP63203QWU-7/16548045
-VBAT1,1,VBAT,test_point_custom:TestPoint_Pad_D1.0mm,,
