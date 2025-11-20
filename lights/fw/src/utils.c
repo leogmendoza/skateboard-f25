@@ -62,3 +62,28 @@ uint32_t utils_uptime_ms(void) {
 
     return value;
 }
+
+void utils_timer0_init(void) {
+    // Check if OC0A at PD6 is set as an output
+    if ((DDRD & (1 << PIND6)) != 0) {
+        printf("PD6 is not set as output. Cannot initialize PWM through OC0A.");
+
+        return;
+    }
+
+    TCCR0A = (1 << COM0A1) | (0 << COM0A0) |  // Clear OC0A on compare match, set OC0A at BOTTOM, (non-inverting mode)
+             (1 << COM0B1) | (0 << COM0B0) |  // Clear OC0B on compare match, set OC0B at BOTTOM, (non-inverting mode)
+             (1 << WGM01) | (1 << WGM00);  // Fast PWM, TOP = 0xFF == 255 (mode 4)
+
+    TCCR0B = (0 << FOC0A) | (0 << FOC0B) |  // Forcibly set to 0 to ensure compatibility with PWM mode
+             (0 << WGM02) |  // Fast PWM (mode 4)
+             (0 << CS02) | (1 << CS01) | (1 << CS00);  // Prescaler = 64
+
+    // Explicitly clear to ensure PWM starts at LOW (these will be manipulated during runtime for duty cycle)
+    OCR0A = 0;
+    OCR0B = 0;
+}
+
+void utils_timer2_init(void){
+    
+}
