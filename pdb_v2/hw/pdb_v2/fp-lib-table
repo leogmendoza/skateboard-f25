@@ -16,4 +16,5 @@
   (lib (name "7447714560")(type "KiCad")(uri "C:/Users/Leo/Downloads/ul_7447714560/KiCADv6/footprints.pretty")(options "")(descr ""))
   (lib (name "7447779004")(type "KiCad")(uri "C:/Users/Leo/Downloads/ul_7447779004/KiCADv6/footprints.pretty")(options "")(descr ""))
   (lib (name "74404052039")(type "KiCad")(uri "C:/Users/Leo/Downloads/ul_74404052039/KiCADv6/footprints.pretty")(options "")(descr ""))
+  (lib (name "SSD1306")(type "KiCad")(uri "C:/Users/Miko/Downloads/kicad-oled-ssd1306-128x64-master/kicad-oled-ssd1306-128x64-master/library/SSD1306.pretty")(options "")(descr ""))
 )

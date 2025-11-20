@@ -5430,10 +5430,6 @@
 		(uuid "24516f61-42c4-42c0-8d9d-a3a0e55fde2b")
 	)
 	(no_connect
-		(at 196.85 233.68)
-		(uuid "24a425ce-6945-4bde-a606-9f641fe3c1d1")
-	)
-	(no_connect
 		(at 154.94 93.98)
 		(uuid "29201256-d0d0-4ed2-a391-6d26530cfba7")
 	)
@@ -5576,6 +5572,16 @@
 			(type default)
 		)
 		(uuid "05465f94-cb7b-4e5c-805c-d38d41a9cf50")
+	)
+	(wire
+		(pts
+			(xy 196.85 233.68) (xy 208.28 233.68)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0b9c6b06-4554-4c94-8b79-bce7949dda4f")
 	)
 	(wire
 		(pts
@@ -6759,16 +6765,6 @@
 	)
 	(wire
 		(pts
-			(xy 191.77 184.15) (xy 193.04 184.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "964a3c5b-1480-4595-91f9-eda8835eae93")
-	)
-	(wire
-		(pts
 			(xy 40.64 241.3) (xy 52.07 241.3)
 		)
 		(stroke
@@ -7096,6 +7092,16 @@
 			(type default)
 		)
 		(uuid "c15fa67e-7b8e-4fbb-b182-f6f6044073e9")
+	)
+	(wire
+		(pts
+			(xy 187.96 184.15) (xy 193.04 184.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c23e414b-42f0-418d-827c-df48553375d7")
 	)
 	(wire
 		(pts
@@ -7637,6 +7643,16 @@
 		)
 		(uuid "357b3c5f-7a1e-47e5-ae9a-30a99171d75d")
 	)
+	(label "LED"
+		(at 187.96 184.15 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "380ac12d-910b-49f7-87b0-34d1a403d89b")
+	)
 	(label "3V3_SPLIT"
 		(at 67.31 127 90)
 		(effects
@@ -7726,6 +7742,16 @@
 			(justify right bottom)
 		)
 		(uuid "aefdd4b9-7978-4a56-9c8c-15c54c03e65f")
+	)
+	(label "LED"
+		(at 208.28 233.68 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "b0ce91f6-cd0b-403a-948c-af0df9f6593f")
 	)
 	(label "3V3_SPLIT"
 		(at 50.8 139.7 0)
@@ -7820,28 +7846,6 @@
 		(uuid "1a6683ad-4186-4bbe-8372-b5142c69b6fc")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 105.5696 259.08 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "3V3_BUS"
-		(shape input)
-		(at 191.77 184.15 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "1c8f014e-c992-4c17-99db-1ccb3c3a2946")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 180.4996 184.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8527,7 +8531,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_SMD:SW_SPST_TL3342"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH_6mm"
 			(at 120.65 196.85 0)
 			(effects
 				(font
@@ -13328,7 +13332,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Button_Switch_SMD:SW_SPST_TL3342"
+		(property "Footprint" "Button_Switch_THT:SW_PUSH_6mm"
 			(at 86.36 198.12 0)
 			(effects
 				(font
