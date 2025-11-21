@@ -5294,12 +5294,6 @@
 		(uuid "d6f618f2-62d6-44ad-b36f-1a9f23d92afd")
 	)
 	(junction
-		(at 279.4 59.69)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d8b64761-66fb-45c9-9ee8-ca5d2385aca5")
-	)
-	(junction
 		(at 318.77 38.1)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -11918,74 +11912,6 @@
 			(project ""
 				(path "/60722063-abcd-445d-bfe3-2bc3b4deef0d"
 					(reference "C1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 279.4 59.69 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a1b98127-cedb-4cb6-b675-620fc45347bf")
-		(property "Reference" "GND2"
-			(at 284.48 58.4199 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 284.48 60.9599 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "test_point_custom:TestPoint_Pad_D1.0mm"
-			(at 279.4 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 279.4 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 279.4 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "223cdf76-5610-42d6-9d88-f265e0ef1501")
-		)
-		(instances
-			(project "power_distribution"
-				(path "/60722063-abcd-445d-bfe3-2bc3b4deef0d"
-					(reference "GND2")
 					(unit 1)
 				)
 			)
