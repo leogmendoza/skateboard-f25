@@ -4,9 +4,13 @@
 #include <stdbool.h>
 
 #define SYSTEM_CLOCK_FREQUENCY_HZ F_CPU
+
 #define TIMER1_TOTAL_CYCLES_1_MS (SYSTEM_CLOCK_FREQUENCY_HZ * 0.001) // Cycles to count for 1 ms interval: 8000 
-#define PRESCALER 8
-#define TIMER1_TOP_COUNT ((TIMER1_TOTAL_CYCLES_1_MS / PRESCALER) - 1UL) // Value for Output Compare Register (OCR1A/TOP): 999 => 1 us TIMER1 clock period
+#define TIMER1_PRESCALER 8  // <= 8000 / 8 = 1000 cycles
+#define TIMER1_TOP_COUNT ((TIMER1_TOTAL_CYCLES_1_MS / TIMER1_PRESCALER) - 1UL) // Value for Output Compare Register (OCR1A/TOP): 999 => 1 us TIMER1 clock period
+
+#define TIMER0_TOP_COUNT 255  // Since Timer0 is 8-bit
+#define TIMER0_PRESCALER 64  // <= 488 Hz = ((8000000 / 256) / 64), which is high enough to prevent flickering and low enough to minimize switching losses
 
 /* GPIO */
 
