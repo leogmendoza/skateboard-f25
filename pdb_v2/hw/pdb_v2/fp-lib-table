@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 (fp_lib_table
   (version 7)
   (lib (name "LMR51635XFDDCR")(type "KiCad")(uri "C:/Users/Leo/Downloads/ul_LMR51635XFDDCR/KiCADv6/footprints.pretty")(options "")(descr ""))
@@ -18,3 +19,24 @@
   (lib (name "74404052039")(type "KiCad")(uri "C:/Users/Leo/Downloads/ul_74404052039/KiCADv6/footprints.pretty")(options "")(descr ""))
   (lib (name "SSD1306")(type "KiCad")(uri "C:/Users/Miko/Downloads/kicad-oled-ssd1306-128x64-master/kicad-oled-ssd1306-128x64-master/library/SSD1306.pretty")(options "")(descr ""))
 )
+=======
+(fp_lib_table
+  (version 7)
+  (lib (name "LMR51635XFDDCR")(type "KiCad")(uri "C:/Users/Leo/Downloads/ul_LMR51635XFDDCR/KiCADv6/footprints.pretty")(options "")(descr ""))
+  (lib (name "AP63203WU-7")(type "KiCad")(uri "C:/Users/Leo/Downloads/AP63203WU_7/KiCADv6/footprints.pretty")(options "")(descr ""))
+  (lib (name "AP63205WU-7")(type "KiCad")(uri "C:/Users/Leo/Downloads/AP63205WU_7/KiCADv6/footprints.pretty")(options "")(descr ""))
+  (lib (name "XT Connectors")(type "KiCad")(uri "C:/Users/Leo/Downloads/Connector_AMASS.pretty")(options "")(descr ""))
+  (lib (name "BZT52C15-7-F")(type "KiCad")(uri "C:/Users/Leo/Downloads/BZT52C15-13-F")(options "")(descr ""))
+  (lib (name "GSFD6959")(type "KiCad")(uri "C:/Users/Leo/Downloads/GSFD6959/KiCADv6/footprints.pretty")(options "")(descr ""))
+  (lib (name "SMBJ51A-13-F")(type "KiCad")(uri "C:/Users/Leo/Downloads/SMBJ51A_13_F/KiCADv6/footprints.pretty")(options "")(descr ""))
+  (lib (name "0685T3500-01")(type "KiCad")(uri "C:/Users/Leo/Downloads/ul_C1T-3-5/KiCADv6/footprints.pretty")(options "")(descr ""))
+  (lib (name "0ZCH0050FF2G")(type "KiCad")(uri "C:/Users/Leo/Downloads/ul_0ZCH0050FF2G(1)/KiCADv6/footprints.pretty")(options "")(descr ""))
+  (lib (name "ESD5Z12T1G")(type "KiCad")(uri "C:/Users/Leo/Downloads/ul_ESD5Z12T1G/KiCADv6/footprints.pretty")(options "")(descr ""))
+  (lib (name "ESD5Z5.0T1G")(type "KiCad")(uri "C:/Users/Leo/Downloads/ul_ESD5Z5-0T1G/KiCADv6/footprints.pretty")(options "")(descr ""))
+  (lib (name "ESD5Z3.3T5G")(type "KiCad")(uri "C:/Users/Leo/Downloads/ul_ESD5Z3-3T5G/KiCADv6/footprints.pretty")(options "")(descr ""))
+  (lib (name "test_point_custom")(type "KiCad")(uri "${KIPRJMOD}/test_point_custom.pretty")(options "")(descr ""))
+  (lib (name "7447714560")(type "KiCad")(uri "C:/Users/Leo/Downloads/ul_7447714560/KiCADv6/footprints.pretty")(options "")(descr ""))
+  (lib (name "7447779004")(type "KiCad")(uri "C:/Users/Leo/Downloads/ul_7447779004/KiCADv6/footprints.pretty")(options "")(descr ""))
+  (lib (name "74404052039")(type "KiCad")(uri "C:/Users/Leo/Downloads/ul_74404052039/KiCADv6/footprints.pretty")(options "")(descr ""))
+)
+>>>>>>> main

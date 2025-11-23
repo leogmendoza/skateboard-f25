@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "io.h": "c",
+        "portpins.h": "c",
+        "interrupt.h": "c"
+    }
+}
