@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'AB_EZD03R_A3'
+CLASS = DISCRETE
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "ARROW_PART_NUMBER", "ARROW_PRICE/STOCK", "DESCRIPTION", "DATASHEET", "HEIGHT";
+{========================================================================================}
+ "American Bright LED", "AB-EZD03R-A3" (!) = "", "ABEZD03RA3", "Other", "", "", "", "", "Single Color LEDs 0.3W, 12V, RED, 3030 EMC, DC ezyLED", "https://www.americanbrightled.com/pdffiles/led-components/ezyled/AB-EZD-12V.pdf", "0.62 mm"
+END_PART
+
+END.

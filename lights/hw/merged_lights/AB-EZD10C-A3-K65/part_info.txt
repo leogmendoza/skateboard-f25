@@ -1,0 +1,9 @@
+Manufacturer=American Bright LED
+PartNumber=AB-EZD10C-A3-K65
+PartCategory=LED
+PackageCategory=Other
+PinCount=2
+Version=1.5
+Released=2025-11-14 05:59:42
+Downloaded=2025-11-14 17:07:14
+3D=N
