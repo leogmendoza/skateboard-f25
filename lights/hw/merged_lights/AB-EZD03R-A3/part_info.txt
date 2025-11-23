@@ -1,9 +1,0 @@
-Manufacturer=American Bright LED
-PartNumber=AB-EZD03R-A3
-PartCategory=LED
-PackageCategory=Other
-PinCount=2
-Version=1.3
-Released=2025-11-14 06:03:23
-Downloaded=2025-11-14 17:07:58
-3D=N
