@@ -56,7 +56,7 @@ bool utils_gpio_read(volatile uint8_t *pin, uint8_t bit);
 
 /**
  * @brief Configure Timer1 to generate a 1 ms system tick interrupt
- *
+ *              
  * Timer1 runs in CTC mode with OCR1A set for 1 ms interrupts.
  * Used for uptime tracking in utils_uptime_ms().
  * 

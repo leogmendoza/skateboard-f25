@@ -65,18 +65,25 @@ uint32_t utils_uptime_ms(void) {
 
 void utils_timer0_init(void) {
     // Check if OC0A at PD6 is set as an output
-    if ((DDRD & (1 << PIND6)) != 0) {
+    if ((DDRD & (1 << PD6)) == 0) {
         printf("PD6 is not set as output. Cannot initialize PWM through OC0A.");
+
+        return;
+    }
+
+    // Check if OC0B at PD5 is set as an output
+    if ((DDRD & (1 << PD5)) == 0) {
+        printf("PD5 is not set as output. Cannot initialize PWM through OC0B.");
 
         return;
     }
 
     TCCR0A = (1 << COM0A1) | (0 << COM0A0) |  // Clear OC0A on compare match, set OC0A at BOTTOM, (non-inverting mode)
              (1 << COM0B1) | (0 << COM0B0) |  // Clear OC0B on compare match, set OC0B at BOTTOM, (non-inverting mode)
-             (1 << WGM01) | (1 << WGM00);  // Fast PWM, TOP = 0xFF == 255 (mode 4)
+             (1 << WGM01) | (1 << WGM00);  // Fast PWM, TOP = 0xFF = 255 (mode 3)
 
     TCCR0B = (0 << FOC0A) | (0 << FOC0B) |  // Forcibly set to 0 to ensure compatibility with PWM mode
-             (0 << WGM02) |  // Fast PWM (mode 4)
+             (0 << WGM02) |  // Fast PWM (mode 3)
              (0 << CS02) | (1 << CS01) | (1 << CS00);  // Prescaler = 64
 
     // Explicitly clear to ensure PWM starts at LOW (these will be manipulated during runtime for duty cycle)
@@ -85,5 +92,29 @@ void utils_timer0_init(void) {
 }
 
 void utils_timer2_init(void){
-    
+    // Check if OC2A at PB3 is set as an output
+    if ((DDRB & (1 << PB3)) == 0) {
+        printf("PB3 is not set as output. Cannot initialize PWM through OC2A.");
+
+        return;
+    }
+
+    // Check if OC2B at PD3 is set as an output
+    if ((DDRD & (1 << PD3)) == 0) {
+        printf("PD3 is not set as output. Cannot initialize PWM through OC2B.");
+
+        return;
+    }
+
+    TCCR2A = (1 << COM2A1) | (0 << COM2A0) |  // Clear OC2A on compare match, set OC0A at BOTTOM, (non-inverting mode)
+             (1 << COM2B1) | (0 << COM2B0) |  // Clear OC2B on compare match, set OC0B at BOTTOM, (non-inverting mode)
+             (1 << WGM21) | (1 << WGM20);  // Fast PWM, TOP = 0xFF = 255 (mode 3)
+
+    TCCR2B = (0 << FOC2A) | (0 << FOC2B) |  // Forcibly set to 0 to ensure compatibility with PWM mode
+             (0 << WGM22) |  // Fast PWM (mode 3)
+             (0 << CS22) | (1 << CS21) | (1 << CS20);  // Prescaler = 64
+
+    // Explicitly clear to ensure PWM starts at LOW (these will be manipulated during runtime for duty cycle)
+    OCR2A = 0;
+    OCR2B = 0;
 }
