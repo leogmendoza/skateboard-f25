@@ -2,7 +2,15 @@
 
 #include <avr/interrupt.h>
 
-volatile uint32_t uptime_ms = 0;
+static volatile uint32_t uptime_ms = 0;
+
+// Lookup table for output compare registers to change PWM duty cycle of TAIL LIGHTS
+static volatile uint8_t* const OCR_REG[] = {
+    &OCR0A,
+    &OCR0B,
+    &OCR2A,
+    &OCR2B,
+};
 
 /* Configured by utils_timer1_init() to trigger every 1 ms */
 static ISR(TIMER1_COMPA_vect) {
@@ -26,7 +34,7 @@ void utils_gpio_set_input(volatile uint8_t *ddr, volatile uint8_t *port, uint8_t
 }
 
 void utils_gpio_write(volatile uint8_t *ddr, volatile uint8_t *port, uint8_t bit, bool logic_level) {
-    if (*ddr & (1 << bit)) {  // Check if set as input
+    if (*ddr & (1 << bit)) {  // Check if set as output
         if (logic_level) {
             *port |= (1 << bit);
         } else {
@@ -117,4 +125,30 @@ void utils_timer2_init(void){
     // Explicitly clear to ensure PWM starts at LOW (these will be manipulated during runtime for duty cycle)
     OCR2A = 0;
     OCR2B = 0;
+}
+
+void utils_pwm_set_duty_cycle(PwmChannel channel, uint8_t duty_cycle) {
+    if (channel >= NUM_PWM_CH) {
+        printf("PWM channel out of range.");
+        return;
+    }
+    *OCR_REG[channel] = duty_cycle;  // Call lookup table instead of switch-case block to reduce code duplication
+}
+
+void utils_pwm_disable(PwmChannel channel) {
+    switch(channel) {
+        // Clear the Compare Output Mode bits to disconnect port from PWM
+        case PWM_CH_OC0A:
+            TCCR0A &= ~((1 << COM0A0) | (1 << COM0A1));  // Normal port operation, OC0A disconnected
+            break;
+        case PWM_CH_OC0B:
+            TCCR0A &= ~((1 << COM0B0) | (1 << COM0B1));  // Normal port operation, OC0B disconnected
+            break;
+        case PWM_CH_OC2A:
+            TCCR2A &= ~((1 << COM2A0) | (1 << COM2A1));  // Normal port operation, OC2A disconnected
+            break;
+        case PWM_CH_OC2B:
+            TCCR2A &= ~((1 << COM2B0) | (1 << COM2B1));  // Normal port operation, OC2B disconnected
+            break;
+    }
 }
