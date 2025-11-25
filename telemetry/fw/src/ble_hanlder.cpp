@@ -1,11 +1,17 @@
-#include "ble_handler.h"
 #include <Arduino.h>
 #include <NimBLEDevice.h>
+#include "ble_handler.h"
 
-#define DEVICE_NAME "hihihi"
-#define SERVICE_1_UUID "668f0588-ed4e-4acc-806f-5e1c6a1a9742"
-#define CHARACTERISTIC_1A_UUID "19d3b3a8-8a9b-4ad7-90e5-1da3deca02e4"
-NimBLECharacteristic *pCharacteristic = nullptr;
+#define DEVICE_NAME "ESP32 Test" // Change name to whatever you want
+#define SERVICE_1_UUID "668f0588-ed4e-4acc-806f-5e1c6a1a9742" // Example uuid
+#define CHARACTERISTIC_1A_UUID "19d3b3a8-8a9b-4ad7-90e5-1da3deca02e4" // Example uuid
+#define CHARACTERISTIC_1B_UUID "146821d3-189a-4434-bc6f-d6a1fabbd81b" // Example uuid
+#define CHARACTERISTIC_1C_UUID "44db43fe-7333-44f6-bb8d-5c627ee419a8" // Example uuid
+#define CHARACTERISTIC_1D_UUID "c3c64a51-8839-42a4-a8e3-6f0d80ed01e9" // Example uuid
+NimBLECharacteristic *pCharacteristic1 = nullptr;
+NimBLECharacteristic *pCharacteristic2 = nullptr;
+NimBLECharacteristic *pCharacteristic3 = nullptr;
+NimBLECharacteristic *pCharacteristic4 = nullptr;
 NimBLEServer *pServer = nullptr;
 
 //** Callbacks *******/
@@ -26,8 +32,7 @@ class MyServerCallbacks : public NimBLEServerCallbacks {
 class MyCharacteristicCallbacks : public NimBLECharacteristicCallbacks {
 
   void onRead(NimBLECharacteristic *pCharacteristic){
-    uint32_t currentMillis = millis() / 1000;
-    pCharacteristic->setValue((String("67 ") + currentMillis).c_str());
+    pCharacteristic->setValue("Read");
   }
 };
 
@@ -50,29 +55,76 @@ void initBLE() {
   // Services
   NimBLEService *pService = pServer->createService(SERVICE_1_UUID);
 
-  // Characteristics
-  pCharacteristic = pService->createCharacteristic(
+  // Characteristics **************************************************************************
+  pCharacteristic1 = pService->createCharacteristic(
     CHARACTERISTIC_1A_UUID,
     NIMBLE_PROPERTY::READ | NIMBLE_PROPERTY::WRITE | NIMBLE_PROPERTY::NOTIFY
   );
+  pCharacteristic2 = pService->createCharacteristic(
+    CHARACTERISTIC_1B_UUID,
+    NIMBLE_PROPERTY::READ | NIMBLE_PROPERTY::WRITE | NIMBLE_PROPERTY::NOTIFY
+  );
+  pCharacteristic3 = pService->createCharacteristic(
+    CHARACTERISTIC_1C_UUID,
+    NIMBLE_PROPERTY::READ | NIMBLE_PROPERTY::WRITE | NIMBLE_PROPERTY::NOTIFY
+  );
+  pCharacteristic4 = pService->createCharacteristic(
+    CHARACTERISTIC_1D_UUID,
+    NIMBLE_PROPERTY::READ | NIMBLE_PROPERTY::WRITE | NIMBLE_PROPERTY::NOTIFY
+  );
+  // Add more Characteristics if you want to send more data to phone
 
-  pCharacteristic->setCallbacks(new MyCharacteristicCallbacks());
+  // Descriptors for each Characteristic *********************************************************************************
+  NimBLEDescriptor *pDescriptor1 = pCharacteristic1->createDescriptor( // Change descriptor name to whatever you want
+    "2901",
+    NIMBLE_PROPERTY::READ
+  );
+  pDescriptor1->setValue("Battery Level (%)"); //change to whatever you want
+  //*********************************************************************************** */
+  NimBLEDescriptor *pDescriptor2 = pCharacteristic2->createDescriptor( // Change descriptor name to whatever you want
+    "2901",
+    NIMBLE_PROPERTY::READ
+  );
+  pDescriptor2->setValue("Speed (m/s)"); //change to whatever you want
+  //************************************************************************************ */
+  NimBLEDescriptor *pDescriptor3 = pCharacteristic3->createDescriptor( // Change descriptor name to whatever you want
+    "2901",
+    NIMBLE_PROPERTY::READ
+  );
+  pDescriptor3->setValue("Distance Travelled (m)"); // Change to whatever you want
+  //************************************************************************************ */
+  NimBLEDescriptor *pDescriptor4 = pCharacteristic4->createDescriptor( // Change descriptor name to whatever you want
+    "2901",
+    NIMBLE_PROPERTY::READ
+  );
+  pDescriptor4->setValue("Funsies"); // Change to whatever you want
+
+  pCharacteristic1->setCallbacks(new MyCharacteristicCallbacks());
+  pCharacteristic2->setCallbacks(new MyCharacteristicCallbacks());
+  pCharacteristic3->setCallbacks(new MyCharacteristicCallbacks());
+  pCharacteristic4->setCallbacks(new MyCharacteristicCallbacks());
 
   pService->start();
 
-  // Start Advertising WITH the service UUID
+  // Start Advertising with the service UUID
   NimBLEAdvertising *pAdvertising = NimBLEDevice::getAdvertising();
   pAdvertising->setScanResponse(true);
   pAdvertising->start();
 
 }
 
-void notifyBLEData(){
-  // push data to phoneuint32_t currentMillis = millis() / 1000
+void notifyBLEData(NimBLECharacteristic* pCharacteristic, String test){ // Change String test into whatever data you want to pass
+  // push "67" and runtime in seconds to phone every second
   if (pCharacteristic != nullptr && pCharacteristic->getSubscribedCount() > 0) {
     uint32_t currentMillis = millis() / 1000;
-    String value = (String("67 ") + currentMillis).c_str();
+    String value = (test + currentMillis).c_str();
     pCharacteristic->setValue((uint8_t*)value.c_str(), value.length());
     pCharacteristic->notify();
   }
 }
+// put     notifyBLEData(pCharacteristic1, "one");
+//         notifyBLEData(pCharacteristic2, "two");
+//         notifyBLEData(pCharacteristic3, "three");
+//         notifyBLEData(pCharacteristic4, "four");
+// into main function
+// or using a different argument than "one", etc, if you would like
