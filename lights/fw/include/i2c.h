@@ -8,7 +8,7 @@
  * 
  * Read ATMega datasheet Section 21.5 for TWBR/TWSR setup.
  */
-void i2c_init(uint32_t scl_frequency_hz);
+void i2c_init(void);
 
 /**
  * @brief Send START condition and wait for TWINT. 
