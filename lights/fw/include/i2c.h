@@ -3,6 +3,10 @@
 #include <stdint.h>
 #include <stdbool.h>
 
+#define I2C_ADDR_LEN 7
+#define I2C_READ_BIT 1
+#define I2C_WRITE_BIT 0
+
 /**
  * @brief Initialize AVR TWI (I2C) hardware.
  * 
@@ -55,16 +59,16 @@ uint8_t i2c_read_nack(void);
 /**
  * @brief Convenience: write 1 byte to a device register.
  * 
- * Sequence: START → addr(W) → reg → value → STOP.
+ * Sequence: START -> addr(W) -> reg -> value -> STOP.
  */
-void i2c_write_register(uint8_t dev_addr, uint8_t reg, uint8_t value);
+void i2c_write_register(uint8_t slave_addr, uint8_t slave_reg, uint8_t value);
 
 /**
  * @brief Convenience: read 1 byte from a device register.
  * 
- * Sequence: START → addr(W) → reg → RESTART → addr(R) → byte → NACK+STOP.
+ * Sequence: START -> addr(W) -> reg -> RESTART -> addr(R) -> byte -> NACK+STOP.
  */
-uint8_t i2c_read_register(uint8_t dev_addr, uint8_t reg);
+uint8_t i2c_read_register(uint8_t slave_addr, uint8_t slave_reg);
 
 /**
  * @brief Convenience: read multiple sequential registers.

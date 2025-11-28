@@ -81,6 +81,31 @@ uint8_t i2c_read_nack(void) {
     return (TWDR);
 }
 
-void i2c_write_register(uint8_t dev_addr, uint8_t reg, uint8_t value) {
-    
+void i2c_write_register(uint8_t slave_addr, uint8_t slave_reg, uint8_t value) {
+    i2c_start();
+    i2c_send_address( (slave_addr << I2C_ADDR_LEN) | I2C_WRITE_BIT );
+
+    i2c_write(slave_reg);
+    i2c_write(value);
+
+    i2c_stop();
 }
+
+uint8_t i2c_read_register(uint8_t slave_addr, uint8_t slave_reg) {
+    // Write Phase: Tell slave which of its registers the master wants
+    i2c_start();
+    i2c_send_address( (slave_addr << I2C_ADDR_LEN) | I2C_WRITE_BIT );
+    i2c_write(slave_reg);
+
+    // Read Phase: Slave hits master back up with the value stored
+    i2c_start();  // Repeated START to initiate read phase
+    i2c_send_address( (slave_addr << I2C_ADDR_LEN) | I2C_READ_BIT );
+
+    // Read ONE byte (thus, NACK it)
+    uint8_t value = i2c_read_nack();
+
+    i2c_stop();
+
+    return value;
+}
+
