@@ -45,3 +45,42 @@ void i2c_send_address(uint8_t address_byte) {
     }
 }
 
+void i2c_write(uint8_t data) {
+    TWDR = data;
+    TWCR = (1 << TWINT) |
+           (1 << TWEN);
+
+    // Note: TWI hardware immediately writes 0 to TWINT (meaning it is busy tryna send data)
+
+    while (!(TWCR & (1 << TWINT))) {
+        // Wait until data has been successfully transmitted
+    } 
+}
+
+uint8_t i2c_read_ack(void) {
+    TWCR = (1 << TWINT) |
+           (1 << TWEA) |  // Send an ACK after reading byte (later)
+           (1 << TWEN);
+
+    while (!(TWCR & (1 << TWINT))) {
+        // Wait until byte successfully received from and ACK transmitted back to slave!
+    } 
+
+    return (TWDR);
+}
+
+uint8_t i2c_read_nack(void) {
+    TWCR = (1 << TWINT) |
+           (0 << TWEA) |  // Send a NACK after reading byte (later)
+           (1 << TWEN);
+
+    while (!(TWCR & (1 << TWINT))) {
+        // Wait until byte successfully received from and NACK transmitted back to slave!
+    } 
+
+    return (TWDR);
+}
+
+void i2c_write_register(uint8_t dev_addr, uint8_t reg, uint8_t value) {
+    
+}
