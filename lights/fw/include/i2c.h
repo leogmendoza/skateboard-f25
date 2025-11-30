@@ -68,11 +68,11 @@ void i2c_write_register(uint8_t slave_addr, uint8_t slave_reg, uint8_t value);
  * 
  * Sequence: START -> addr(W) -> reg -> RESTART -> addr(R) -> byte -> NACK+STOP.
  */
-uint8_t i2c_read_register(uint8_t slave_addr, uint8_t slave_reg);
+uint8_t i2c_read_register_single(uint8_t slave_addr, uint8_t slave_reg);
 
 /**
  * @brief Convenience: read multiple sequential registers.
  * 
  * Use repeated START and ACK all but final byte.
  */
-void i2c_read_multi(uint8_t dev_addr, uint8_t start_reg, uint8_t *buf, uint8_t len);
+void i2c_read_register_multiple(uint8_t slave_addr, uint8_t start_slave_reg, uint8_t *buffer, uint8_t num_reg);

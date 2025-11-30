@@ -91,8 +91,8 @@ void i2c_write_register(uint8_t slave_addr, uint8_t slave_reg, uint8_t value) {
     i2c_stop();
 }
 
-uint8_t i2c_read_register(uint8_t slave_addr, uint8_t slave_reg) {
-    // Write Phase: Tell slave which of its registers the master wants
+uint8_t i2c_read_register_single(uint8_t slave_addr, uint8_t slave_reg) {
+    // Write Phase: Tell slave which of its registers the master wants to read
     i2c_start();
     i2c_send_address( (slave_addr << I2C_ADDR_LEN) | I2C_WRITE_BIT );
     i2c_write(slave_reg);
@@ -109,3 +109,24 @@ uint8_t i2c_read_register(uint8_t slave_addr, uint8_t slave_reg) {
     return value;
 }
 
+void i2c_read_register_multiple(uint8_t slave_addr, uint8_t start_slave_reg, uint8_t *buffer, uint8_t num_reg) {
+    // Write Phase: Tell slave which of its registers the master wants to start reading from
+    i2c_start();
+    i2c_send_address( (slave_addr << I2C_ADDR_LEN) | I2C_WRITE_BIT );
+    i2c_write(start_slave_reg);
+
+    // Read Phase: Slave hits master back up with the value stored
+    i2c_start();  // Repeated START to initiate read phase
+    i2c_send_address( (slave_addr << I2C_ADDR_LEN) | I2C_READ_BIT );
+
+    // Note: I2C devices auto-increment their internal register pointer when the master ACKs the prev byte! :O
+    // Read multiple bytes, then ACK each one (except for the last byte)
+    for (uint8_t i = 0; i < (num_reg - 1); ++i) {
+        buffer[i] = i2c_read_ack();
+    }
+
+    // Read last byte, then NACK it
+    buffer[num_reg - 1] = i2c_read_nack();
+
+    i2c_stop();
+}
