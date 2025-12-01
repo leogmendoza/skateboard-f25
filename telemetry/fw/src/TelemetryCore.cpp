@@ -20,7 +20,7 @@
 #define BLE_TASK_PERIOD_MS         250     // BLE notification rate
 
 // current wheel dimensions set 90mm
-static constexpr float WHEEL_DIAMETER_M        = 0.09f;
+static constexpr float WHEEL_DIAMETER_M        = 0.105f;
 static constexpr float WHEEL_CIRCUMFERENCE_M   = WHEEL_DIAMETER_M * PI;          
 static constexpr float KMH_PER_RPM             = (WHEEL_CIRCUMFERENCE_M / 1000.0f) * 60.0f;
 static constexpr float KM_PER_TACH_COUNT       = WHEEL_CIRCUMFERENCE_M / 1000.0f;
