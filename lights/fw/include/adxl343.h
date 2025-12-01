@@ -11,16 +11,16 @@
 // Registers
 #define ADXL343_REG_DEVID 0x00
 #define ADXL343_REG_BW_RATE 0x2C
-    #define ADXL343_REG_BW_RATE_RATE_3 3
-    #define ADXL343_REG_BW_RATE_RATE_2 2
-    #define ADXL343_REG_BW_RATE_RATE_1 1
-    #define ADXL343_REG_BW_RATE_RATE_0 0
+    #define ADXL343_REG_BW_RATE_RATE3 3
+    #define ADXL343_REG_BW_RATE_RATE2 2
+    #define ADXL343_REG_BW_RATE_RATE1 1
+    #define ADXL343_REG_BW_RATE_RATE0 0
 #define ADXL343_REG_POWER_CTL 0x2D
     #define ADXL343_REG_POWER_CTL_MEASURE 3
 #define ADXL343_REG_DATA_FORMAT 0x31
     #define ADXL343_REG_DATA_FORMAT_FULL_RES 3
-    #define ADXL343_REG_DATA_FORMAT_RANGE_1 1
-    #define ADXL343_REG_DATA_FORMAT_RANGE_0 0
+    #define ADXL343_REG_DATA_FORMAT_RANGE1 1
+    #define ADXL343_REG_DATA_FORMAT_RANGE0 0
 #define ADXL343_REG_DATAX0 0x32  // DATAX1 at 0x33, ... , DATAZ1 at 0x37
 
 // Register Values
@@ -65,14 +65,6 @@ void adxl343_update(void);
 void adxl343_get_acceleration(int16_t *ax, int16_t *ay, int16_t *az);
 
 /**
- * @brief Determine whether the current acceleration indicates deceleration beyond the configured threshold
- * 
- * Activity thresholds use scale 62.5 mg/LSB (Registers THRESH_ACT, page 23).
- * Raw acceleration signs & axes orientation shown in Figure 47 (page 34) and Figure 48 (page 34).
- */
-bool adxl343_is_braking(void);
-
-/**
  * @brief Adjust braking detection threshold in milli-g units
  * 
  * @param threshold_mg Deceleration magnitude (in mg) required to report braking
@@ -81,3 +73,11 @@ bool adxl343_is_braking(void);
  * You are NOT writing this into THRESH_ACT; this is a firmware-side threshold.
  */
 void adxl343_set_brake_threshold(int16_t threshold_mg);
+
+/**
+ * @brief Determine whether the current acceleration indicates deceleration beyond the configured threshold
+ * 
+ * Activity thresholds use scale 62.5 mg/LSB (Registers THRESH_ACT, page 23).
+ * Raw acceleration signs & axes orientation shown in Figure 47 (page 34) and Figure 48 (page 34).
+ */
+bool adxl343_is_braking(void);
