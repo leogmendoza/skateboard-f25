@@ -4,8 +4,8 @@
 #include <stdbool.h>
 
 #define I2C_ADDR_LEN 7
-#define I2C_READ_BIT 1
 #define I2C_WRITE_BIT 0
+#define I2C_READ_BIT 1
 
 /**
  * @brief Initialize AVR TWI (I2C) hardware.
