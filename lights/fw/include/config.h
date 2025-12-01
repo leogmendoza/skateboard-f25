@@ -2,9 +2,6 @@
 
 #include <avr/io.h>
 
-/* MISC. */
-#define BUTTON_DEBOUNCE_MS 100
-
 /* HEAD LIGHT */
 // #define HEAD_BUTTON_PORT
 // #define HEAD_BUTTON_DDR
