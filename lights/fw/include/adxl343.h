@@ -21,9 +21,16 @@
     #define ADXL343_REG_DATA_FORMAT_FULL_RES 3
     #define ADXL343_REG_DATA_FORMAT_RANGE_1 1
     #define ADXL343_REG_DATA_FORMAT_RANGE_0 0
+#define ADXL343_REG_DATAX0 0x32  // DATAX1 at 0x33, ... , DATAZ1 at 0x37
 
 // Register Values
 #define ADXL343_DEVICE_ID 0xE5
+
+typedef struct Adxl343Data {
+    int16_t ax;
+    int16_t ay;
+    int16_t az;
+} Adxl343Data;
 
 // Note: I2C will be abstracted away in these functions
 

@@ -1,5 +1,9 @@
 #include "adxl343.h"
 
+static int16_t ax_raw = 0;
+static int16_t ay_raw = 0;
+static int16_t az_raw = 0;
+
 bool adxl343_init(void) {
     // Verify Device ID
     uint8_t device_id = i2c_read_register_single(ADXL343_I2C_SLAVE_ADDR_ALT, ADXL343_REG_DEVID);
@@ -29,3 +33,14 @@ bool adxl343_init(void) {
         (1 << ADXL343_REG_POWER_CTL_MEASURE)  // Standby Mode
     );
 }
+
+void adxl343_update(void) {
+    int8_t buffer[6];  // Six bytes to be read (2 bytes for each axis)
+    i2c_read_register_multiple(ADXL343_I2C_SLAVE_ADDR_ALT, ADXL343_REG_DATAX0, buffer, 6);
+
+    // DATAx1 holds the MSB
+    ax_raw = (int16_t)( (buffer[1] << 8) | buffer[0] );
+    ax_raw = (int16_t)( (buffer[3] << 8) | buffer[2] );
+    ax_raw = (int16_t)( (buffer[5] << 8) | buffer[4] );
+}
+
