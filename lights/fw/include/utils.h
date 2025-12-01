@@ -12,6 +12,7 @@
 #define TIMER0_TOP_COUNT 255  // Since Timer0 is 8-bit
 #define TIMER0_PRESCALER 64  // <= 488 Hz = ((8000000 / 256) / 64), which is high enough to prevent flickering and low enough to minimize switching losses
 
+// Used by led.h/c too
 typedef enum {
     PWM_CH_OC0A,
     PWM_CH_OC0B,

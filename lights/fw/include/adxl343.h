@@ -65,14 +65,14 @@ void adxl343_update(void);
 void adxl343_get_acceleration(int16_t *ax, int16_t *ay, int16_t *az);
 
 /**
- * @brief Adjust braking detection threshold in milli-g units
+ * @brief Adjust braking and stationary detection threshold in milli-g units
  * 
  * @param threshold_mg Deceleration magnitude (in mg) required to report braking
  * 
  * 1 LSB = 3.9 mg in full-resolution mode (Table 1, page 3).
  * You are NOT writing this into THRESH_ACT; this is a firmware-side threshold.
  */
-void adxl343_set_brake_threshold(int16_t threshold_mg);
+void adxl343_set_thresholds(int16_t brake_threshold_mg, int16_t stationary_threshold_mg);
 
 /**
  * @brief Determine whether the current acceleration indicates deceleration beyond the configured threshold
@@ -81,3 +81,5 @@ void adxl343_set_brake_threshold(int16_t threshold_mg);
  * Raw acceleration signs & axes orientation shown in Figure 47 (page 34) and Figure 48 (page 34).
  */
 bool adxl343_is_braking(void);
+
+bool adxl343_is_stationary(void);

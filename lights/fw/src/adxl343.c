@@ -4,7 +4,8 @@ static int16_t ax_raw = 0;
 static int16_t ay_raw = 0;
 static int16_t az_raw = 0;
 
-static int16_t brake_threshold_lsb = 0;  // Magnitude, in LSB
+static int16_t brake_threshold_lsb = 0;  
+static int16_t stationary_threshold_lsb = 0;
 
 bool adxl343_init(void) {
     // Verify Device ID
@@ -54,27 +55,36 @@ void adxl343_get_acceleration(int16_t *ax, int16_t *ay, int16_t *az) {
     *az = az_raw;
 }
 
-void adxl343_set_brake_threshold(int16_t threshold_mg) {
-    // Clamp negative values
-    if (threshold_mg < 0) {
-        threshold_mg = -threshold_mg;
+void adxl343_set_thresholds(int16_t brake_threshold_mg, int16_t stationary_threshold_mg) {
+    // Clamp negative inputs
+    if (brake_threshold_mg < 0) {
+        brake_threshold_mg = -brake_threshold_mg;
     }
-    
-    // Convert mg to LSB, allowing truncation
-    // Note: LSB = (mg * 256) / 1000
-    int32_t temp = (int32_t)(threshold_mg * 256);
-    brake_threshold_lsb = (int16_t)(temp / 1000);
+    if (stationary_threshold_mg < 0) {
+        stationary_threshold_mg = -stationary_threshold_mg;
+    }
 
+    // Convert mg to LSB (allowing truncation)
+    // Note: LSB = (mg * 256) / 1000
+    int32_t temp1 = (int32_t)(brake_threshold_mg * 256);
+    brake_threshold_lsb = (int16_t)(temp1 / 1000);
+    int32_t temp2 = (int32_t)(stationary_threshold_mg * 256);
+    stationary_threshold_lsb = (int16_t)(temp2 / 1000);
+
+    // Clamp to magnitude-only outputs
     if (brake_threshold_lsb < 0) {
-        brake_threshold_lsb = -brake_threshold_lsb;  // Ensure it is a magnitude
+        brake_threshold_lsb = -brake_threshold_lsb;  
+    }
+    if (stationary_threshold_mg < 0) {
+        stationary_threshold_lsb = -stationary_threshold_mg;
     }
 }
 
 bool adxl343_is_braking(void) {
     // Note: We only care about the X-direction. Also, ax_raw is in LSBs, 2's complement.
-    if (ax_raw <= -(brake_threshold_lsb)) {
-        return true;
-    }
-
-    return false;   
+    return (ax_raw <= -(brake_threshold_lsb));
 }
+
+bool adxl343_is_stationary(void) {
+    return(abs(ax_raw) < stationary_threshold_lsb);
+}   
