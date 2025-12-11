@@ -499,7 +499,7 @@
       "plot": "gerbers/",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "merged_lights.stl",
       "svg": "",
       "vrml": ""
     },

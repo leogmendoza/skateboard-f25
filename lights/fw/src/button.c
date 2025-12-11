@@ -39,8 +39,8 @@ void lights_button_update(LightsButton *button, uint32_t current_time_ms) {
 }
 
 bool lights_button_is_pressed(LightsButton *button) {
-    bool temp = button->pressed_flag;
+    bool was_pressed = button->pressed_flag;
     button->pressed_flag = false;  // Clear since it was just checked
 
-    return temp;
+    return was_pressed;
 }
