@@ -22,7 +22,10 @@
 
 #define MAX_WARNING_LEN 24
 
-Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+TwoWire oledWire(1);
+
+// Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &oledWire, OLED_RESET);
 
 static float speed_default   = 0.0f;
 static float battery_default = 0.0f;
@@ -30,7 +33,7 @@ static float temp_default    = 0.0f;
 static char  warning_default[MAX_WARNING_LEN] = "";
 
 void display_init() {
-  Wire.begin();
+  oledWire.begin(21, 22);
 
   if (!display.begin(SSD1306_SWITCHCAPVCC, OLED_ADDRESS)) {
     // If init fails, hang – there is no display

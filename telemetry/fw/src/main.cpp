@@ -2,6 +2,7 @@
 #include "TelemetryCore.h"
 
 void setup() {
+    delay(1000);
     TelemetryCore::init();
 }
 

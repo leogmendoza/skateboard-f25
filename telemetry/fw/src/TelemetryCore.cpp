@@ -26,7 +26,7 @@ static constexpr float KMH_PER_RPM             = (WHEEL_CIRCUMFERENCE_M / 1000.0
 static constexpr float KM_PER_TACH_COUNT       = WHEEL_CIRCUMFERENCE_M / 1000.0f;
 
 // ========= Global API instances =========
-static BmsAPI     gBms(Serial2);  
+static BmsAPI     gBms(Serial2);  // Replaced gBms(Serial2);  
 static VescParser gVesc;
 
 // ========= Shared Telemetry =========
@@ -60,16 +60,16 @@ static void bmsTask(void *pvParameters) {
     for (;;) {
         gBms.update();   // internal JbdBms call
 
-        float voltage = gBms.getVoltage();               // V
-        float current = gBms.getCurrent();               // A
-        float soc     = gBms.getChargePercentage();      // %
-        float temp    = gBms.getAverageTemperature();    // °C (avg of NTCs):contentReference[oaicite:0]{index=0}
+        float voltage = gBms.voltage();               // V
+        float current = gBms.current();               // A
+        float soc     = gBms.soc();      // %
+        // float temp    = gBms.getAverageTemperature();    // °C (avg of NTCs):contentReference[oaicite:0]{index=0}
 
         if (xSemaphoreTake(gTelemetryMutex, portMAX_DELAY) == pdTRUE) {
             gTelemetry.packVoltage = voltage;
             gTelemetry.packCurrent = current;
             gTelemetry.socPercent  = soc;
-            gTelemetry.tempC       = temp;
+            // gTelemetry.tempC       = temp;
             xSemaphoreGive(gTelemetryMutex);
         }
 
@@ -146,8 +146,8 @@ namespace TelemetryCore {
 
 void init() {
     // Serial mostly for debugging; BLE also does Serial.begin internally
-    Serial.begin(115200);
-    delay(300);
+    Serial.begin(115200);   
+    delay(1000);
 
     Serial.println();
     Serial.println("========== TelemetryCore Init ==========");
@@ -188,6 +188,8 @@ void init() {
     xTaskCreate(bleTask,  "BLE Task",  4096, nullptr, 2, nullptr);
 
     Serial.println("[Core] TelemetryCore init complete.");
+
+
 }
 
 }
