@@ -15,21 +15,21 @@ void lights_fsm_update(LightsFsm *fsm, LightsEvent event) {
             break;
 
         case LIGHTS_EVENT_BUTTON_PRESS:
+            fsm->last_transition_ms = utils_uptime_ms();  // TODO: Define using a millis() implementation
             fsm->index++;
 
             if (fsm->index >= fsm->num_states) {
                 fsm->index = 0;  // Wrap around to first state
             }
 
-            fsm->last_transition_ms = utils_uptime_ms();  // TODO: Define using a millis() implementation
             break;
 
-        case LIGHTS_EVENT_TIMER_ELAPSED:
+        case LIGHTS_EVENT_STARTUP_COMPLETE:
+            fsm->last_transition_ms = utils_uptime_ms();  // TODO: Define using a millis() implementation
             fsm->index++;
             
             // TODO: Same as above without the wrapping?
 
-            fsm->last_transition_ms = utils_uptime_ms();  // TODO: Define using a millis() implementation
             break;
     }
 

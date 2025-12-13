@@ -22,6 +22,9 @@
 #define TAIL_LEDS_DDR
 // #define TAIL_LEDS_PIN  // not relevant anymore 
 
+#define STARTUP_SEQUENCE_INTERVAL_MS 200
+#define STARTUP_SEQUENCE_ITERATIONS 10
+
 /* ACCELEROMETER */
 // #define ACCELEROMETER_SCL_DDR
 // #define ACCELEROMETER_SCL_PIN   

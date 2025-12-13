@@ -1,6 +1,7 @@
 #include "utils.h"
 
 #include <avr/interrupt.h>
+#include <stdbool.h>
 
 static volatile uint32_t uptime_ms = 0;
 
@@ -69,6 +70,14 @@ uint32_t utils_uptime_ms(void) {
     sei();  // CRITICAL SECTION ENDS
 
     return value;
+}
+
+bool utils_has_time_elapsed(uint32_t prev_time_ms, uint32_t wait_period_ms) {
+    if ( (utils_uptime_ms() - prev_time_ms) >= wait_period_ms ) {
+        return true;
+    }
+
+    return false;
 }
 
 void utils_timer0_init(void) {

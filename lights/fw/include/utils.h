@@ -79,6 +79,8 @@ void utils_timer1_init(void);
  */
 uint32_t utils_uptime_ms(void);
 
+bool utils_has_time_elapsed(uint32_t prev_timestamp_ms, uint32_t period_ms);
+
 /* PWM */
 
 /**

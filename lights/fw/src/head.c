@@ -31,12 +31,22 @@ void head_light_init(HeadLight *head) {
 void head_light_update(HeadLight *head) {
     switch (lights_fsm_get_state(&head->fsm)) {
         case LIGHTS_STATE_STARTUP:
-            for (uint8_t i = 0; i < NUM_HEAD_LEDS; i++) {
-                // TODO: SEQUENCE
-                lights_led_set_brightness(&head->leds[i], LIGHTS_LED_BRIGHTNESS_DEFAULT);
+            uint32_t curr_time_ms = utils_uptime_ms();
+            uint32_t delta_time_ms = curr_time_ms - head->fsm.last_transition_ms;
 
-                // Some sort of delay thing idk
+            for (uint8_t i = 0; i < NUM_HEAD_LEDS; i++) {
+                if (delta_time_ms >= (i * STARTUP_SEQUENCE_INTERVAL_MS)) {
+                    lights_led_set_brightness(&head->leds[i], LIGHTS_LED_BRIGHTNESS_DEFAULT);
+                } else {
+                    lights_led_set_brightness(&head->leds[i], LIGHTS_LED_BRIGHTNESS_OFF);
+                }
             }
+
+            // Automatically transition to next state after repeating the sequence
+            if ( delta_time_ms > (STARTUP_SEQUENCE_ITERATIONS * NUM_HEAD_LEDS * STARTUP_SEQUENCE_INTERVAL_MS) ) {
+                lights_fsm_update(&head->fsm, LIGHTS_EVENT_STARTUP_COMPLETE);
+            }
+
             break;
 
         case LIGHTS_STATE_SOLID:
@@ -49,6 +59,8 @@ void head_light_update(HeadLight *head) {
             for (uint8_t i = 0; i < NUM_HEAD_LEDS; i++) {
                 lights_led_set_brightness( &head->leds[i], !(head->leds[i].brightness) );
             }
+
+            // TODO: Figure out how to strobe
             break;
 
         case LIGHTS_STATE_OFF:
