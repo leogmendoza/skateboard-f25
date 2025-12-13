@@ -1,21 +1,36 @@
 #include "fsm.h"
 
+#include "utils.h"
+
 void lights_fsm_init(LightsFsm *fsm, const LightsState *state_sequence, uint8_t num_states) {
     fsm->state_sequence = state_sequence;
     fsm->num_states = num_states;
     fsm->index = 0;
-    fsm->last_transition_ms = 0;  // TODO: Define using a millis() implementation
+    fsm->last_transition_ms = utils_uptime_ms();  // TODO: Define using a millis() implementation
 }
 
 void lights_fsm_update(LightsFsm *fsm, LightsEvent event) {
-    if (event == LIGHTS_EVENT_BUTTON_PRESS) {
-        fsm->index++;
+    switch (event) {
+        case LIGHTS_EVENT_NONE:
+            break;
 
-        if (fsm->index >= fsm->num_states) {
-            fsm->index = 0;  // Wrap around to first state
-        }
+        case LIGHTS_EVENT_BUTTON_PRESS:
+            fsm->index++;
 
-        fsm->last_transition_ms = 0;  // TODO: Define using a millis() implementation
+            if (fsm->index >= fsm->num_states) {
+                fsm->index = 0;  // Wrap around to first state
+            }
+
+            fsm->last_transition_ms = utils_uptime_ms();  // TODO: Define using a millis() implementation
+            break;
+
+        case LIGHTS_EVENT_TIMER_ELAPSED:
+            fsm->index++;
+            
+            // TODO: Same as above without the wrapping?
+
+            fsm->last_transition_ms = utils_uptime_ms();  // TODO: Define using a millis() implementation
+            break;
     }
 
     // NOTE: OLD IMPLEMENTATION -> Use something of the sort a layer higher in head/tail.c 

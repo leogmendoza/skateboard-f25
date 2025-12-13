@@ -16,7 +16,7 @@ typedef struct {
 /**
  * @brief Initialize headlight FSM, LEDs, and button
  */
-void head_light_init(HeadLight *head);
+void head_light_init(HeadLight *head);  
 
 /**
  * @brief Handle headlight button input and apply LED brightness per mode

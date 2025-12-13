@@ -22,7 +22,7 @@ typedef struct {
 typedef enum {
     LIGHTS_EVENT_NONE,
     LIGHTS_EVENT_BUTTON_PRESS,
-    LIGHTS_EVENT_TIMER_ELAPSED
+    LIGHTS_EVENT_TIMER_ELAPSED,
 } LightsEvent;
 
 /**

@@ -19,6 +19,7 @@ typedef enum {
     PWM_CH_OC2A,
     PWM_CH_OC2B,
     NUM_PWM_CH,
+    NO_PWM_CH,
 } PwmChannel;
 
 /* GPIO */

@@ -3,20 +3,24 @@
 #include <avr/io.h>
 
 /* HEAD LIGHT */
-// #define HEAD_BUTTON_PORT
-// #define HEAD_BUTTON_DDR
-// #define HEAD_BUTTON_PIN
-// #define HEAD_LEDS_PORT
-// #define HEAD_LEDS_DDR
+#define HEAD_BUTTON_PORT PORTB
+#define HEAD_BUTTON_DDR DDRB
+#define HEAD_BUTTON_PIN PINB
+#define HEAD_BUTTON_BIT 1
+
+#define HEAD_LEDS_DDR DDRC
+#define HEAD_LEDS_PORT PORTC
 // #define HEAD_LEDS_PIN
 
 /* TAIL LIGHT */
-// #define TAIL_BUTTON_PORT
-// #define TAIL_BUTTON_DDR
-// #define TAIL_BUTTON_PIN
-// #define TAIL_LEDS_PORT
-// #define TAIL_LEDS_DDR
-// #define TAIL_LEDS_PIN
+#define TAIL_BUTTON_PORT PORTD  
+#define TAIL_BUTTON_DDR DDRD
+#define TAIL_BUTTON_PIN PIND
+#define TAIL_BUTTON_BIT 7
+
+#define TAIL_LEDS_PORT 
+#define TAIL_LEDS_DDR
+// #define TAIL_LEDS_PIN  // not relevant anymore 
 
 /* ACCELEROMETER */
 // #define ACCELEROMETER_SCL_DDR
