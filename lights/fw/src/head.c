@@ -42,9 +42,10 @@ void head_light_init(HeadLight *head) {
 }
 
 void head_light_update(HeadLight *head) {
+    uint32_t curr_time_ms = utils_uptime_ms();
+
     switch (lights_fsm_get_state(&head->fsm)) {
         case LIGHTS_STATE_STARTUP: {
-            uint32_t curr_time_ms = utils_uptime_ms();
             uint32_t delta_time_ms = (curr_time_ms - head->fsm.last_transition_ms);
 
             uint8_t step = delta_time_ms / STARTUP_STEP_TIME_MS;
@@ -79,7 +80,6 @@ void head_light_update(HeadLight *head) {
         }
 
         case LIGHTS_STATE_STROBE: {
-            uint32_t curr_time_ms = utils_uptime_ms();
             uint32_t delta_time_ms = curr_time_ms - head->fsm.last_transition_ms;
 
             if (delta_time_ms >= head_strobe_pattern_timing_ms[head->strobe_step]) {
@@ -115,7 +115,7 @@ void head_light_update(HeadLight *head) {
         lights_led_update(&head->leds[i]);
     }
 
-    lights_button_update(&head->button, utils_uptime_ms());
+    lights_button_update(&head->button, curr_time_ms);
 
     if (lights_button_is_pressed(&head->button)) {
         lights_fsm_update(&head->fsm, LIGHTS_EVENT_BUTTON_PRESS);

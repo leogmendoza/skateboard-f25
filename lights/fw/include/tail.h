@@ -7,10 +7,14 @@
 
 #define NUM_TAIL_LEDS 4
 
+#define FLASH_STEP_MS 500
+
 typedef struct {
     LightsFsm fsm;
     LightsButton button;
     LightsLed leds[NUM_TAIL_LEDS];
+
+    uint8_t startup_cycle;
 } TailLight;
 
 /**
