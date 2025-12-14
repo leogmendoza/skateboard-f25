@@ -4,15 +4,16 @@
 #include "config.h"
 #include "fsm.h"
 #include "button.h"
+#include "adxl343.h"
 
-static const volatile uint8_t *tail_ddr_sequence[] = {
+static const volatile uint8_t * const tail_ddr_sequence[] = {
     &DDRD,
     &DDRD,
     &DDRB,
     &DDRD,
 };
 
-static const volatile uint8_t *tail_port_sequence[] = {
+static const volatile uint8_t * const tail_port_sequence[] = {
     &PORTD,
     &PORTD,
     &PORTB,
@@ -34,6 +35,8 @@ static const LightsState tail_state_sequence[] = {
 };
 
 void tail_light_init(TailLight *tail) {
+    adxl343_init();
+
     lights_fsm_init(&tail->fsm, tail_state_sequence, NUM_STATES);
     lights_button_init(&tail->button, TAIL_BUTTON_PIN, TAIL_BUTTON_DDR, TAIL_BUTTON_PORT, TAIL_BUTTON_BIT);
 
@@ -76,11 +79,24 @@ void tail_light_update(TailLight *tail) {
         }
 
         case LIGHTS_STATE_SOLID: {
-            for (uint8_t i = 0; i < NUM_TAIL_LEDS; i++) {
-                // TODO: ACCEL STUFF
+            adxl343_update();
 
-                lights_led_set_brightness(&tail->leds[i], LIGHTS_LED_BRIGHTNESS_DEFAULT);
-            }
+            #ifdef ENABLE_SIMPLE_BRAKE_LIGHTS
+                uint8_t brightness = 0;
+                
+                if (adxl343_is_braking()) {
+                    brightness = TAIL_BRIGHTNESS_BRAKING;
+                } else if (adxl343_is_stationary()) {
+                    brightness = TAIL_BRIGHTNESS_STATIONARY;
+                } else {
+                    brightness = TAIL_BRIGHTNESS_DEFAULT;
+                }
+
+                for (uint8_t i = 0; i < NUM_TAIL_LEDS; i++) {
+                    lights_led_set_brightness(&tail->leds[i], brightness);
+                }
+            #endif
+
             break;
         }
 

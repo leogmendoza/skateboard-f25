@@ -9,6 +9,10 @@
 
 #define FLASH_STEP_MS 500
 
+#define TAIL_BRIGHTNESS_BRAKING 255
+#define TAIL_BRIGHTNESS_DEFAULT 150
+#define TAIL_BRIGHTNESS_STATIONARY 50
+
 typedef struct {
     LightsFsm fsm;
     LightsButton button;
