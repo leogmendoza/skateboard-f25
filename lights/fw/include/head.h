@@ -12,6 +12,7 @@ typedef struct {
     LightsButton button;
     LightsLed leds[NUM_HEAD_LEDS];
 
+    uint8_t startup_cycle;
     uint8_t strobe_step;
 } HeadLight;
 
