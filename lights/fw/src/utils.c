@@ -72,13 +72,13 @@ uint32_t utils_uptime_ms(void) {
     return value;
 }
 
-bool utils_has_time_elapsed(uint32_t prev_time_ms, uint32_t wait_period_ms) {
-    if ( (utils_uptime_ms() - prev_time_ms) >= wait_period_ms ) {
-        return true;
-    }
+// bool utils_has_time_elapsed(uint32_t prev_time_ms, uint16_t wait_period_ms) {
+//     if ( (utils_uptime_ms() - prev_time_ms) >= wait_period_ms ) {
+//         return true;
+//     }
 
-    return false;
-}
+//     return false;
+// }
 
 void utils_timer0_init(void) {
     // Check if OC0A at PD6 is set as an output

@@ -19,6 +19,16 @@ static const LightsState head_state_sequence[] = {
     LIGHTS_STATE_OFF,
 };
 
+static const uint16_t head_strobe_pattern_timing_ms[] = {
+    20,  // On
+    20,  // Off
+    20,  // On
+    20,  // Off
+    20,  // On
+    120  // Rotund Off
+};
+#define STROBE_PATTERN_TIMING_LEN (sizeof(head_strobe_pattern_timing_ms) / head_strobe_pattern_timing_ms[0])
+
 void head_light_init(HeadLight *head) {
     lights_fsm_init(&head->fsm, head_state_sequence, NUM_STATES);
     lights_button_init(&head->button, HEAD_BUTTON_PIN, HEAD_BUTTON_DDR, HEAD_BUTTON_PORT, HEAD_BUTTON_BIT);
@@ -26,13 +36,15 @@ void head_light_init(HeadLight *head) {
     for (uint8_t i = 0; i < NUM_HEAD_LEDS; i++) {
         lights_led_init(&head->leds[i], HEAD_LEDS_DDR, HEAD_LEDS_PORT, head_bit_sequence[i], NO_PWM_CH);
     }
+
+    head->strobe_step = 0;
 }
 
 void head_light_update(HeadLight *head) {
     switch (lights_fsm_get_state(&head->fsm)) {
         case LIGHTS_STATE_STARTUP:
             uint32_t curr_time_ms = utils_uptime_ms();
-            uint32_t delta_time_ms = curr_time_ms - head->fsm.last_transition_ms;
+            uint32_t delta_time_ms = (curr_time_ms - head->fsm.last_transition_ms) % (NUM_HEAD_LEDS * STARTUP_SEQUENCE_INTERVAL_MS);  // Account for repeated cycles
 
             for (uint8_t i = 0; i < NUM_HEAD_LEDS; i++) {
                 if (delta_time_ms >= (i * STARTUP_SEQUENCE_INTERVAL_MS)) {
@@ -43,7 +55,7 @@ void head_light_update(HeadLight *head) {
             }
 
             // Automatically transition to next state after repeating the sequence
-            if ( delta_time_ms > (STARTUP_SEQUENCE_ITERATIONS * NUM_HEAD_LEDS * STARTUP_SEQUENCE_INTERVAL_MS) ) {
+            if ( delta_time_ms > (STARTUP_SEQUENCE_CYCLES * NUM_HEAD_LEDS * STARTUP_SEQUENCE_INTERVAL_MS) ) {
                 lights_fsm_update(&head->fsm, LIGHTS_EVENT_STARTUP_COMPLETE);
             }
 
@@ -56,11 +68,26 @@ void head_light_update(HeadLight *head) {
             break;
 
         case LIGHTS_STATE_STROBE:
-            for (uint8_t i = 0; i < NUM_HEAD_LEDS; i++) {
-                lights_led_set_brightness( &head->leds[i], !(head->leds[i].brightness) );
-            }
+            uint32_t curr_time_ms = utils_uptime_ms();
+            uint32_t delta_time_ms = curr_time_ms - head->fsm.last_transition_ms;
 
-            // TODO: Figure out how to strobe
+            if (delta_time_ms >= head_strobe_pattern_timing_ms[head->strobe_step]) {
+                bool led_on = (head->strobe_step % 2) == 0;
+
+                for (uint8_t i = 0; i < NUM_HEAD_LEDS; i++) {
+                    if (led_on) {
+                        lights_led_set_brightness(&head->leds[i],LIGHTS_LED_BRIGHTNESS_DEFAULT);
+                    } else {
+                        lights_led_set_brightness(&head->leds[i],LIGHTS_LED_BRIGHTNESS_OFF);
+                    }
+                }
+
+                head->strobe_step++;
+
+                if (head->strobe_step > STROBE_PATTERN_TIMING_LEN) {
+                    head->strobe_step = 0;
+                }
+            }
             break;
 
         case LIGHTS_STATE_OFF:
