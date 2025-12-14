@@ -6,14 +6,14 @@
 #include "button.h"
 #include "adxl343.h"
 
-static const volatile uint8_t * const tail_ddr_sequence[] = {
+static volatile uint8_t * const tail_ddr_sequence[] = {
     &DDRD,
     &DDRD,
     &DDRB,
     &DDRD,
 };
 
-static const volatile uint8_t * const tail_port_sequence[] = {
+static volatile uint8_t * const tail_port_sequence[] = {
     &PORTD,
     &PORTD,
     &PORTB,
@@ -36,6 +36,7 @@ static const LightsState tail_state_sequence[] = {
 
 void tail_light_init(TailLight *tail) {
     adxl343_init();
+    adxl343_set_thresholds(BRAKE_THRESHOLD_MG, STATIONARY_THRESHOLD_MG);
 
     lights_fsm_init(&tail->fsm, tail_state_sequence, NUM_STATES);
     lights_button_init(&tail->button, TAIL_BUTTON_PIN, TAIL_BUTTON_DDR, TAIL_BUTTON_PORT, TAIL_BUTTON_BIT);
@@ -72,6 +73,7 @@ void tail_light_update(TailLight *tail) {
 
             // Automatically transition to next state after repeating many cycles
             if (tail->startup_cycle >= STARTUP_TOTAL_CYCLES) {
+                tail->startup_cycle = 0;
                 lights_fsm_update(&tail->fsm, LIGHTS_EVENT_STARTUP_COMPLETE);
             }
 
@@ -81,9 +83,9 @@ void tail_light_update(TailLight *tail) {
         case LIGHTS_STATE_SOLID: {
             adxl343_update();
 
-            #ifdef ENABLE_SIMPLE_BRAKE_LIGHTS
-                uint8_t brightness = 0;
-                
+            uint8_t brightness = 0;
+
+            #ifndef ENABLE_FADING_BRAKE_LIGHTS
                 if (adxl343_is_braking()) {
                     brightness = TAIL_BRIGHTNESS_BRAKING;
                 } else if (adxl343_is_stationary()) {
@@ -91,11 +93,29 @@ void tail_light_update(TailLight *tail) {
                 } else {
                     brightness = TAIL_BRIGHTNESS_DEFAULT;
                 }
+            #else
+                Adxl343Data acceleration;
+                adxl343_get_acceleration(&acceleration.ax, &acceleration.ay, &acceleration.az);
 
-                for (uint8_t i = 0; i < NUM_TAIL_LEDS; i++) {
-                    lights_led_set_brightness(&tail->leds[i], brightness);
+                // Convert (negative) braking acceleration to positive deceleration magnitude
+                int16_t deceleration = -(acceleration.ax);
+                if (deceleration < 0) {
+                    deceleration = 0;
+                }
+
+                int16_t brake_threshold_lsb = adxl343_get_brake_threshold_lsb();
+
+                if (deceleration >= brake_threshold_lsb) {
+                    brightness = TAIL_BRIGHTNESS_BRAKING;
+                } else {
+                    // Linear fade-in between default and brake max
+                    brightness = TAIL_BRIGHTNESS_DEFAULT + ( ( (TAIL_BRIGHTNESS_BRAKING - TAIL_BRIGHTNESS_DEFAULT) * deceleration ) / brake_threshold_lsb );
                 }
             #endif
+
+            for (uint8_t i = 0; i < NUM_TAIL_LEDS; i++) {
+                lights_led_set_brightness(&tail->leds[i], brightness);
+            }
 
             break;
         }

@@ -88,3 +88,11 @@ bool adxl343_is_braking(void) {
 bool adxl343_is_stationary(void) {
     return(abs(ax_raw) < stationary_threshold_lsb);
 }   
+
+int16_t adxl343_get_brake_threshold_lsb(void) {
+    return brake_threshold_lsb;
+}
+
+int16_t adxl343_get_stationary_threshold_lsb(void) {
+    return stationary_threshold_lsb;
+}

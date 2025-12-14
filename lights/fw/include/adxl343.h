@@ -83,3 +83,6 @@ void adxl343_set_thresholds(int16_t brake_threshold_mg, int16_t stationary_thres
 bool adxl343_is_braking(void);
 
 bool adxl343_is_stationary(void);
+
+int16_t adxl343_get_brake_threshold_lsb(void);
+int16_t adxl343_get_stationary_threshold_lsb(void);
