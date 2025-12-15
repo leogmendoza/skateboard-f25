@@ -1,5 +1,9 @@
 #include "adxl343.h"
 
+#include <stdlib.h>
+
+#include "i2c.h"
+
 static int16_t ax_raw = 0;
 static int16_t ay_raw = 0;
 static int16_t az_raw = 0;

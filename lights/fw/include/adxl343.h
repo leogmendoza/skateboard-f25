@@ -3,8 +3,6 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-#include "i2c.h"
-
 // I2C
 #define ADXL343_I2C_SLAVE_ADDR_ALT 0x53  // ALT_ADDRESS is pulled down to GND, so using alternate address rather than default
 

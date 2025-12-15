@@ -2,6 +2,7 @@
 
 #include <avr/interrupt.h>
 #include <stdbool.h>
+#include <stdio.h>
 
 static volatile uint32_t uptime_ms = 0;
 
@@ -14,7 +15,7 @@ static volatile uint8_t* const OCR_REG[] = {
 };
 
 /* Configured by utils_timer1_init() to trigger every 1 ms */
-static ISR(TIMER1_COMPA_vect) {
+ISR(TIMER1_COMPA_vect) {
     uptime_ms++;
 }
 
@@ -108,7 +109,7 @@ void utils_timer0_init(void) {
     OCR0B = 0;
 }
 
-void utils_timer2_init(void){
+void utils_timer2_init(void) {
     // Check if OC2A at PB3 is set as an output
     if ((DDRB & (1 << PB3)) == 0) {
         printf("PB3 is not set as output. Cannot initialize PWM through OC2A.");

@@ -2,6 +2,8 @@
 
 #include <avr/io.h>
 
+#define TASK_PERIOD_1000_HZ_IN_MS 1
+
 /* HEAD LIGHT */
 #define HEAD_BUTTON_PORT &PORTB
 #define HEAD_BUTTON_DDR &DDRB

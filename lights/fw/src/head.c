@@ -42,7 +42,7 @@ void head_light_init(HeadLight *head) {
 }
 
 void head_light_update(HeadLight *head) {
-    uint32_t curr_time_ms = utils_uptime_ms();
+    uint32_t curr_time_ms = utils_uptime_ms();  
 
     switch (lights_fsm_get_state(&head->fsm)) {
         case LIGHTS_STATE_STARTUP: {
