@@ -5,11 +5,11 @@
 #include "fsm.h"
 #include "button.h"
 
-static const uint8_t head_bit_sequence[] = {
-    PC3,
-    PC2,
-    PC1,
-    PC0,
+const uint8_t head_bit_sequence[] = {
+    PC3,  // H1  
+    PC2,  // H2
+    PC1,  // H3
+    PC0,  // H4
 };
 
 static const LightsState head_state_sequence[] = {
@@ -25,7 +25,7 @@ static const uint16_t head_strobe_pattern_timing_ms[] = {
     20,  // On
     20,  // Off
     20,  // On
-    120  // Rotund Off
+    120  // **Rotund** Off
 };
 #define STROBE_PATTERN_TIMING_LEN (sizeof(head_strobe_pattern_timing_ms) / sizeof(head_strobe_pattern_timing_ms[0]))
 

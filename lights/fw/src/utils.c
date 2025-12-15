@@ -21,7 +21,10 @@ ISR(TIMER1_COMPA_vect) {
 
 /* GPIO */
 
-void utils_gpio_set_output(volatile uint8_t *ddr, uint8_t bit) {
+void utils_gpio_set_output(volatile uint8_t *ddr, volatile uint8_t *port, uint8_t bit) {
+    // Note: Not part of main implementation
+    *port &= ~(1 << bit);  // Prepare to drive low (and disable pullup since it is technically currently an input) to mitigate floating signals (MOSFETs on LEDs)
+
     *ddr |= (1 << bit);
 }
 
@@ -84,14 +87,14 @@ uint32_t utils_uptime_ms(void) {
 void utils_timer0_init(void) {
     // Check if OC0A at PD6 is set as an output
     if ((DDRD & (1 << PD6)) == 0) {
-        printf("PD6 is not set as output. Cannot initialize PWM through OC0A.");
+        // printf("PD6 is not set as output. Cannot initialize PWM through OC0A.");
 
         return;
     }
 
     // Check if OC0B at PD5 is set as an output
     if ((DDRD & (1 << PD5)) == 0) {
-        printf("PD5 is not set as output. Cannot initialize PWM through OC0B.");
+        // printf("PD5 is not set as output. Cannot initialize PWM through OC0B.");
 
         return;
     }
@@ -112,14 +115,14 @@ void utils_timer0_init(void) {
 void utils_timer2_init(void) {
     // Check if OC2A at PB3 is set as an output
     if ((DDRB & (1 << PB3)) == 0) {
-        printf("PB3 is not set as output. Cannot initialize PWM through OC2A.");
+        // printf("PB3 is not set as output. Cannot initialize PWM through OC2A.");
 
         return;
     }
 
     // Check if OC2B at PD3 is set as an output
     if ((DDRD & (1 << PD3)) == 0) {
-        printf("PD3 is not set as output. Cannot initialize PWM through OC2B.");
+        // printf("PD3 is not set as output. Cannot initialize PWM through OC2B.");
 
         return;
     }
@@ -139,10 +142,18 @@ void utils_timer2_init(void) {
 
 void utils_pwm_set_duty_cycle(PwmChannel channel, uint8_t duty_cycle) {
     if (channel >= NUM_PWM_CH) {
-        printf("PWM channel out of range.");
+        // printf("PWM channel out of range.");
         return;
     }
     *OCR_REG[channel] = duty_cycle;  // Call lookup table instead of switch-case block to reduce code duplication
+}
+
+void utils_pwm_reset_timers(void) {
+    TCCR0A = 0; 
+    TCCR0B = 0;
+
+    TCCR2A = 0; 
+    TCCR2B = 0;
 }
 
 void utils_pwm_disable(PwmChannel channel) {

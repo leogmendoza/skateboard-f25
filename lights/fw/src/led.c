@@ -3,13 +3,11 @@
 #include "utils.h"
 
 void lights_led_init(LightsLed *led, volatile uint8_t *ddr, volatile uint8_t *port, uint8_t bit, PwmChannel pwm_channel) {
-    utils_gpio_set_output(ddr, bit);
-
     led->ddr = ddr;
     led->port = port;
     led->bit = bit;
     led->pwm_channel = pwm_channel;
-    led->brightness = LIGHTS_LED_BRIGHTNESS_DEFAULT;
+    led->brightness = LIGHTS_LED_BRIGHTNESS_OFF;
 }
 
 void lights_led_set_brightness(LightsLed *led, uint8_t brightness) {

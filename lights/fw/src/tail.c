@@ -6,25 +6,25 @@
 #include "button.h"
 #include "adxl343.h"
 
-static volatile uint8_t * const tail_ddr_sequence[] = {
+volatile uint8_t * const tail_ddr_sequence[] = {
     &DDRD,
     &DDRD,
     &DDRB,
     &DDRD,
 };
 
-static volatile uint8_t * const tail_port_sequence[] = {
+volatile uint8_t * const tail_port_sequence[] = {
     &PORTD,
     &PORTD,
     &PORTB,
     &PORTD,
 };
 
-static const uint8_t tail_bit_sequence[] = {
-    PD6,
-    PD5,
-    PB3,
-    PD3,
+const uint8_t tail_bit_sequence[] = {
+    PD6,  // T1
+    PD5,  // T2
+    PB3,  // T3
+    PD3,  // T4
 };
 
 static const LightsState tail_state_sequence[] = {

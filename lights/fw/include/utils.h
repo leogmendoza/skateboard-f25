@@ -39,10 +39,10 @@ typedef enum {
  */
 
 /**
- * @brief Set pin as output
+ * @brief Set pin as output, not before setting the input-as-default pin LOW to avoid floating pin
  * @note DDR, PORT, PIN are declared "volatile" since they point to hardware registers, NOT typical variables in memory
  */
-void utils_gpio_set_output(volatile uint8_t *ddr, uint8_t bit);
+void utils_gpio_set_output(volatile uint8_t *ddr, volatile uint8_t *port, uint8_t bit);
 
 /**
  * @brief Set pin as input and configure internal pull-up resistor, if needed
@@ -106,6 +106,8 @@ void utils_timer2_init(void);
  * @param duty     Duty cycle (0–255)
  */
 void utils_pwm_set_duty_cycle(PwmChannel channel, uint8_t duty_cycle);
+
+void utils_pwm_reset_timers(void);
 
 /**
  * @brief Stop PWM output on a specific channel

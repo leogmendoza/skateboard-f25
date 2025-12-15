@@ -21,6 +21,10 @@ typedef struct {
     uint8_t startup_cycle;
 } TailLight;
 
+extern volatile uint8_t * const tail_ddr_sequence[];
+extern volatile uint8_t * const tail_port_sequence[];
+extern const uint8_t tail_bit_sequence[];
+
 /**
  * @brief Initialize taillight FSM, LEDs, button, and accelerometer
  */

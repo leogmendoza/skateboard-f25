@@ -16,6 +16,8 @@ typedef struct {
     uint8_t strobe_step;
 } HeadLight;
 
+extern const uint8_t head_bit_sequence[];
+
 /**
  * @brief Initialize headlight FSM, LEDs, and button
  */

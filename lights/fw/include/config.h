@@ -2,6 +2,9 @@
 
 #include <avr/io.h>
 
+#define ENABLE_UART_DEBUG 0
+#define ENABLE_PRODUCTION_CODE 1
+
 #define TASK_PERIOD_1000_HZ_IN_MS 1
 
 /* HEAD LIGHT */
