@@ -3,6 +3,7 @@
 #include <util/delay.h>
 
 #include "utils.h"
+#include "uart.h"
 #include "i2c.h"
 #include "head.h"
 #include "tail.h"
@@ -11,6 +12,7 @@ int main(void) {
     utils_timer1_init();
     utils_timer0_init();
     utils_timer2_init();
+    uart_init();
     i2c_init();
 
     sei();  // Enable global interrupts 
@@ -25,6 +27,8 @@ int main(void) {
     tail_light_init(&tail_light);
 
     prev_time_ms = utils_uptime_ms();
+
+    uart_write_str("hello\r\n");
 
     while (1) {
         curr_time_ms = utils_uptime_ms();
