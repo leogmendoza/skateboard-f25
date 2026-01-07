@@ -2,12 +2,12 @@
 #include <NimBLEDevice.h>
 #include "ble_handler.h"
 
-#define DEVICE_NAME "ESP32 Telemetry"
-#define SERVICE_1_UUID "668f0588-ed4e-4acc-806f-5e1c6a1a9742"
-#define CHARACTERISTIC_1A_UUID "19d3b3a8-8a9b-4ad7-90e5-1da3deca02e4"
-#define CHARACTERISTIC_1B_UUID "146821d3-189a-4434-bc6f-d6a1fabbd81b"
-#define CHARACTERISTIC_1C_UUID "44db43fe-7333-44f6-bb8d-5c627ee419a8"
-#define CHARACTERISTIC_1D_UUID "c3c64a51-8839-42a4-a8e3-6f0d80ed01e9"
+#define DEVICE_NAME "ESP32 Test" // Change name to whatever you want
+#define SERVICE_1_UUID "668f0588-ed4e-4acc-806f-5e1c6a1a9742" // Example uuid
+#define CHARACTERISTIC_1A_UUID "19d3b3a8-8a9b-4ad7-90e5-1da3deca02e4" // Example uuid
+#define CHARACTERISTIC_1B_UUID "146821d3-189a-4434-bc6f-d6a1fabbd81b" // Example uuid
+#define CHARACTERISTIC_1C_UUID "44db43fe-7333-44f6-bb8d-5c627ee419a8" // Example uuid
+#define CHARACTERISTIC_1D_UUID "c3c64a51-8839-42a4-a8e3-6f0d80ed01e9" // Example uuid
 NimBLECharacteristic *pCharacteristic1 = nullptr;
 NimBLECharacteristic *pCharacteristic2 = nullptr;
 NimBLECharacteristic *pCharacteristic3 = nullptr;
@@ -79,25 +79,25 @@ void initBLE() {
     "2901",
     NIMBLE_PROPERTY::READ
   );
-  pDescriptor1->setValue("Speed (km/h)");
+  pDescriptor1->setValue("Battery Level (%)"); //change to whatever you want
   //*********************************************************************************** */
   NimBLEDescriptor *pDescriptor2 = pCharacteristic2->createDescriptor( // Change descriptor name to whatever you want
     "2901",
     NIMBLE_PROPERTY::READ
   );
-  pDescriptor2->setValue("Distance (km)");
+  pDescriptor2->setValue("Speed (m/s)"); //change to whatever you want
   //************************************************************************************ */
   NimBLEDescriptor *pDescriptor3 = pCharacteristic3->createDescriptor( // Change descriptor name to whatever you want
     "2901",
     NIMBLE_PROPERTY::READ
   );
-  pDescriptor3->setValue("Battery (%)");
+  pDescriptor3->setValue("Distance Travelled (m)"); // Change to whatever you want
   //************************************************************************************ */
   NimBLEDescriptor *pDescriptor4 = pCharacteristic4->createDescriptor( // Change descriptor name to whatever you want
     "2901",
     NIMBLE_PROPERTY::READ
   );
-  pDescriptor4->setValue("Pack Voltage (V)");
+  pDescriptor4->setValue("Funsies"); // Change to whatever you want
 
   pCharacteristic1->setCallbacks(new MyCharacteristicCallbacks());
   pCharacteristic2->setCallbacks(new MyCharacteristicCallbacks());
@@ -114,14 +114,13 @@ void initBLE() {
 }
 
 void notifyBLEData(NimBLECharacteristic* pCharacteristic, String test){ // Change String test into whatever data you want to pass
+  // push "67" and runtime in seconds to phone every second
   if (pCharacteristic != nullptr && pCharacteristic->getSubscribedCount() > 0) {
-    pCharacteristic->setValue(test);
+    uint32_t currentMillis = millis() / 1000;
+    String value = (test + currentMillis).c_str();
+    pCharacteristic->setValue((uint8_t*)value.c_str(), value.length());
     pCharacteristic->notify();
   }
-}
-
-bool isClientConnected() {
-  return pServer != nullptr && pServer->getConnectedCount() > 0;
 }
 // put     notifyBLEData(pCharacteristic1, "one");
 //         notifyBLEData(pCharacteristic2, "two");
