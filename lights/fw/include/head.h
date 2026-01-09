@@ -11,12 +11,17 @@ typedef struct {
     LightsFsm fsm;
     LightsButton button;
     LightsLed leds[NUM_HEAD_LEDS];
+
+    uint8_t startup_cycle;
+    uint8_t strobe_step;
 } HeadLight;
+
+extern const uint8_t head_bit_sequence[];
 
 /**
  * @brief Initialize headlight FSM, LEDs, and button
  */
-void head_light_init(HeadLight *head);
+void head_light_init(HeadLight *head);  
 
 /**
  * @brief Handle headlight button input and apply LED brightness per mode

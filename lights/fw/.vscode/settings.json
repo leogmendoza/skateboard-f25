@@ -2,6 +2,8 @@
     "files.associations": {
         "io.h": "c",
         "portpins.h": "c",
-        "interrupt.h": "c"
+        "interrupt.h": "c",
+        "utils.h": "c",
+        "stdbool.h": "c"
     }
 }

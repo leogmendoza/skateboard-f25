@@ -12,6 +12,16 @@
 #define TIMER0_TOP_COUNT 255  // Since Timer0 is 8-bit
 #define TIMER0_PRESCALER 64  // <= 488 Hz = ((8000000 / 256) / 64), which is high enough to prevent flickering and low enough to minimize switching losses
 
+// Used by led.h/c too
+typedef enum {
+    PWM_CH_OC0A,
+    PWM_CH_OC0B,
+    PWM_CH_OC2A,
+    PWM_CH_OC2B,
+    NUM_PWM_CH,
+    NO_PWM_CH,
+} PwmChannel;
+
 /* GPIO */
 
 /**
@@ -29,10 +39,10 @@
  */
 
 /**
- * @brief Set pin as output
+ * @brief Set pin as output, not before setting the input-as-default pin LOW to avoid floating pin
  * @note DDR, PORT, PIN are declared "volatile" since they point to hardware registers, NOT typical variables in memory
  */
-void utils_gpio_set_output(volatile uint8_t *ddr, uint8_t bit);
+void utils_gpio_set_output(volatile uint8_t *ddr, volatile uint8_t *port, uint8_t bit);
 
 /**
  * @brief Set pin as input and configure internal pull-up resistor, if needed
@@ -56,7 +66,7 @@ bool utils_gpio_read(volatile uint8_t *pin, uint8_t bit);
 
 /**
  * @brief Configure Timer1 to generate a 1 ms system tick interrupt
- *
+ *              
  * Timer1 runs in CTC mode with OCR1A set for 1 ms interrupts.
  * Used for uptime tracking in utils_uptime_ms().
  * 
@@ -69,12 +79,14 @@ void utils_timer1_init(void);
  */
 uint32_t utils_uptime_ms(void);
 
+// bool utils_has_time_elapsed(uint32_t prev_timestamp_ms, uint32_t period_ms);
+
 /* PWM */
 
 /**
  * @brief Configure Timer0 for PWM output (OC0A/OC0B)
  *
- * Sets Timer0 in Fast PWM, non-inverting mode, ~1 kHz frequency.
+ * Sets Timer0 in Fast PWM, non-inverting mode, within 1 kHz frequency.
  * Typical pins: PD6 (OC0A) and PD5 (OC0B).
  */
 void utils_timer0_init(void);
@@ -82,7 +94,7 @@ void utils_timer0_init(void);
 /**
  * @brief Configure Timer2 for PWM output (OC2A/OC2B)
  *
- * Sets Timer2 in Fast PWM, non-inverting mode, ~1 kHz frequency.
+ * Sets Timer2 in Fast PWM, non-inverting mode, within 1 kHz frequency.
  * Typical pins: PB3 (OC2A) and PD3 (OC2B).
  */
 void utils_timer2_init(void);
@@ -93,11 +105,13 @@ void utils_timer2_init(void);
  * @param channel  PWM channel index (0=OC0A, 1=OC0B, 2=OC2A, 3=OC2B)
  * @param duty     Duty cycle (0–255)
  */
-void utils_pwm_set_duty_cycle(uint8_t channel, uint8_t duty);
+void utils_pwm_set_duty_cycle(PwmChannel channel, uint8_t duty_cycle);
+
+void utils_pwm_reset_timers(void);
 
 /**
  * @brief Stop PWM output on a specific channel
  *
  * @param channel  PWM channel index (0–3)
  */
-void utils_pwm_disable(uint8_t channel);
+void utils_pwm_disable(PwmChannel channel);
