@@ -61,34 +61,38 @@ int main(void) {
             }
         }
     #else
-        // 0. Force all tail MOSFET gates to a defined OFF state
-        DDRD |= (1 << PD3) | (1 << PD5) | (1 << PD6);
+        /* ---------- FORCE ALL GATES LOW FIRST ---------- */
+
+        // Tail: clear output latches
+
+        PORTD &= ~((1 << PD6) | (1 << PD5) | (1 << PD3));
+        PORTB &= ~(1 << PB3);
+
+        // Head: clear output latches
+        PORTC &= ~((1 << PC3) | (1 << PC2) | (1 << PC1) | (1 << PC0));
+
+        // Now configure as outputs
+        DDRD |= (1 << PD6) | (1 << PD5) | (1 << PD3);
         DDRB |= (1 << PB3);
+        DDRC |= (1 << PC3) | (1 << PC2) | (1 << PC1) | (1 << PC0);
 
-        PORTD &= ~((1 << PD3) | (1 << PD5) | (1 << PD6));  // all low
-        PORTB &= ~(1 << PB3);                              // low
-    
-        // Tail
-        DDRD = (1 << PD6);
+        while (1) {
 
-        // Head
-        DDRC = (1 << PC3);
+            /* ---------- ALL ON ---------- */
+            PORTD |= (1 << PD6) | (1 << PD5) | (1 << PD3);
+            PORTB |= (1 << PB3);
 
-        // Reset brightness at init
-        PORTC = (0 << PC3);
+            PORTC |= (1 << PC3) | (1 << PC2) | (1 << PC1) | (1 << PC0);
 
-        while(1) {
-            // Tail
-            PORTD = (1 << PD6);
-            // Head
-            PORTC = (1 << PC3);
             _delay_ms(500);
 
-            // Tail
-            PORTD = (0 << PD6);
-            // Head
-            PORTC = (0 << PC3);
+            /* ---------- ALL OFF ---------- */
+            PORTD &= ~((1 << PD6) | (1 << PD5) | (1 << PD3));
+            PORTB &= ~(1 << PB3);
+
+            PORTC &= ~((1 << PC3) | (1 << PC2) | (1 << PC1) | (1 << PC0));
+
             _delay_ms(500);
-        } 
+        }
     #endif
 }
