@@ -1,6 +1,8 @@
 # Electrium Mobility F25 Skateboard
 This repository contains all the firmware and hardware for Electrium Mobility's F25 Electric Skateboard.
 
+See our project write-up on the [Electrium Mobility website](https://electriummobility.com/docs/F2025-projects/F25%20Skateboard)!
+
 ## Projects
 - Telemetry
 - Power Distribution
